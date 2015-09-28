@@ -37,8 +37,13 @@ public class LotusActivity extends AppCompatActivity {
     }
 
     private void addDrawerItems() {
-        String[] osArray = { "Categoria 1", "Categoria 2", "Categoria 3", "Categoria 4", "Categoria 5" };
-        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
+        String[] categoriaArray = {
+                "Categoria 1",
+                "Categoria 2",
+                "Categoria 3",
+                "Categoria 4",
+                "Categoria 5" };
+        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, categoriaArray);
         mDrawerList.setAdapter(mAdapter);
 
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
