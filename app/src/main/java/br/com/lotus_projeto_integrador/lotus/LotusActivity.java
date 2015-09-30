@@ -1,11 +1,14 @@
 package br.com.lotus_projeto_integrador.lotus;
 
+import android.app.ActionBar;
+import android.app.Fragment;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class LotusActivity extends AppCompatActivity {
+public class LotusActivity extends ActionBarActivity {
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
     private ArrayAdapter<String> mAdapter;
@@ -54,6 +57,29 @@ public class LotusActivity extends AppCompatActivity {
         });
 
 }
+    public  void onNavigationDrawerItemSelected(int categoriaArray) {
+        Log.d("tag", "Mudando fragmento position" + categoriaArray);
+        // update the main content by replacing fragments
+        Fragment fragment = null;
+        switch (categoriaArray) {
+            case 0:
+                fragment = new LoginFragment();
+                mActivityTitle = getString(R.string.title_section1);
+                break;
+            case 1:
+                fragment = new CadastrarFragment();
+                mActivityTitle = getString(R.string.title_section2);
+                break;
+            case 2:
+                fragment = new PhotosFragment();
+                mActivityTitle = getString(R.string.title_section3);
+                break;
+        }
+
+
+    }
+
+
 
     private void setupDrawer() {
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {
@@ -76,6 +102,7 @@ public class LotusActivity extends AppCompatActivity {
         mDrawerToggle.setDrawerIndicatorEnabled(true);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
+
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
