@@ -2,6 +2,8 @@ package br.com.lotus_projeto_integrador.lotus;
 
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -29,7 +31,8 @@ public class LotusActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lotus);
 
-        mDrawerList = (ListView)findViewById(R.id.navList);mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView)findViewById(R.id.navList);
+        mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         mActivityTitle = getTitle().toString();
 
         addDrawerItems();
@@ -52,7 +55,9 @@ public class LotusActivity extends ActionBarActivity {
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(LotusActivity.this, "Time for an upgrade!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(LotusActivity.this, "Time for an upgrade!", Toast.LENGTH_SHORT).show();
+                onNavigationDrawerItemSelected(position);
+
             }
         });
 
@@ -75,6 +80,13 @@ public class LotusActivity extends ActionBarActivity {
                 mActivityTitle = getString(R.string.title_section3);
                 break;
         }
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.content_frame, fragment);
+        ft.commit();
+        mDrawerLayout.closeDrawer(mDrawerList);
+
 
 
     }
