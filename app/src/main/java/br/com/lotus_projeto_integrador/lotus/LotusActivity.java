@@ -45,10 +45,16 @@ public class LotusActivity extends ActionBarActivity {
     private void addDrawerItems() {
         String[] categoriaArray = {
                 "Home",
+                "Login",
+                "Cadastro",
+                "Câmera",
+                "Carrinho",
+                "Categorias",
+                "Pedido",
                 "Produto",
-                "Categoria 3",
-                "Categoria 4",
-                "Categoria 5" };
+                "Sobre",
+
+        };
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, categoriaArray);
         mDrawerList.setAdapter(mAdapter);
 
@@ -73,12 +79,37 @@ public class LotusActivity extends ActionBarActivity {
                 break;
             case 1:
                 fragment = new LoginFragment2();
-                mActivityTitle = getString(R.string.title_section1);
+                mActivityTitle = getString(R.string.title_section2);
                 break;
             case 2:
+                fragment = new CadastroFragment();
+                mActivityTitle = getString(R.string.title_section1);
+                break;
+            case 3:
+                fragment = new CameraFragment();
+                mActivityTitle = getString(R.string.title_section2);
+                break;
+            case 4:
+                fragment = new CarrinhoFragment();
+                mActivityTitle = getString(R.string.title_section2);
+                break;
+            case 5:
+                fragment = new CategoriaFragment();
+                mActivityTitle = getString(R.string.title_section2);
+                break;
+            case 6:
+                fragment = new PedidoFragment();
+                mActivityTitle = getString(R.string.title_section2);
+                break;
+            case 7:
                 fragment = new ProdutoFragment();
                 mActivityTitle = getString(R.string.title_section2);
                 break;
+            case 8:
+                fragment = new SobreFragment();
+                mActivityTitle = getString(R.string.title_section2);
+                break;
+
 
         }
 
