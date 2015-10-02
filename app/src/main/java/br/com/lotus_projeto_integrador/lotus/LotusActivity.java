@@ -44,7 +44,7 @@ public class LotusActivity extends ActionBarActivity {
 
     private void addDrawerItems() {
         String[] categoriaArray = {
-                "Categoria 1",
+                "Home",
                 "Produto",
                 "Categoria 3",
                 "Categoria 4",
@@ -68,10 +68,14 @@ public class LotusActivity extends ActionBarActivity {
         Fragment fragment = null;
         switch (categoriaArray) {
             case 0:
-                fragment = new LoginFragment2();
+                fragment = new HomeFragment();
                 mActivityTitle = getString(R.string.title_section1);
                 break;
             case 1:
+                fragment = new LoginFragment2();
+                mActivityTitle = getString(R.string.title_section1);
+                break;
+            case 2:
                 fragment = new ProdutoFragment();
                 mActivityTitle = getString(R.string.title_section2);
                 break;
