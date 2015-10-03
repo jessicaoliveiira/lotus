@@ -17,5 +17,14 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Produto">Lista de Produto</string>
     <string name="Cadastrar">Cadastrar</string>
+    <string name="Usuário">Usuário</string>
+    <string name="Nome">Nome:</string>
+    <string name="Email">Email:</string>
+    <string name="Senha">Senha:</string>
+    <string name="CPF">CPF:</string>
+    <string name="Celular">Celular:</string>
+    <string name="TelComercial">Telefone Comercial:</string>
+    <string name="TelResidencial">Telefone Residencial:</string>
+    <string name="DataNascimento">Data de Nascimento:</string>
 
 </resources>

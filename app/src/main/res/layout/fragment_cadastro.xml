@@ -1,10 +1,171 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.lotus_projeto_integrador.lotus.CadastroFragment">
+    tools:context="br.com.lotus_projeto_integrador.lotus.CadastroFragment"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/Cadastrar" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/Cadastrar"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"/>
 
-</FrameLayout>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/Usuário"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"/>
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/Nome"
+            android:layout_marginLeft="10dp"/>
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:id="@+id/CampoNome" />
+    </LinearLayout>
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/Email"
+            android:layout_marginLeft="10dp"/>
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/CampoEmail" />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/Senha"
+            android:layout_marginLeft="10dp"/>
+
+        <EditText
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/CampoSenha" />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/CPF"
+            android:layout_marginLeft="10dp"/>
+
+        <EditText
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/CampoCPF" />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/Celular"
+            android:layout_marginLeft="10dp"/>
+
+        <EditText
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/CampoCelular" />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/TelComercial"
+            android:layout_marginLeft="10dp"/>
+
+        <EditText
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/CampoTelComercial" />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/TelResidencial"
+            android:layout_marginLeft="10dp"/>
+
+        <EditText
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/CampoTelResidencial" />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/DataNascimento"
+            android:layout_marginLeft="10dp"/>
+
+        <EditText
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/CampoDataNascimento" />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salvar"
+        android:id="@+id/BtnSalvar"
+        android:layout_gravity="right"
+        android:backgroundTint="#4db6ac"
+        android:layout_marginLeft="100dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:id="@+id/BtnCancelar"
+        android:backgroundTint="#4db6ac" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
