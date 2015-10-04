@@ -26,5 +26,18 @@
     <string name="TelComercial">Telefone Comercial:</string>
     <string name="TelResidencial">Telefone Residencial:</string>
     <string name="DataNascimento">Data de Nascimento:</string>
+    <string name="title_activity_detalhes_produto">DetalhesProduto</string>
+
+
+    <!-- strings detalhes produto -->
+    <string name="txtNomeProd">Nome do Produto</string>
+    <string name="txtCategProd">Categoria do Produto</string>
+    <string name="txtPrecoDe">De:</string>
+    <string name="txtValorPrecoDe">R$ 0,00</string>
+    <string name="txtPrecoPor">Por:</string>
+    <string name="txtDescProd">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer neque arcu,
+        gravida et libero vel, consequat venenatis erat. Nunc vel felis sit amet ex facilisis malesuada.</string>
+    <string name="btnComprarDetalhes"></string>
+
 
 </resources>
