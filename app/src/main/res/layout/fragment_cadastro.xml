@@ -5,44 +5,35 @@
     android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="@string/Cadastrar"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"/>
 
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="@string/Usuário"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"/>
+
 
     <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
         android:orientation="horizontal">
-
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/Nome"
-            android:layout_marginLeft="10dp"/>
 
         <EditText
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:id="@+id/CampoNome" />
+            android:id="@+id/CampoNome"
+            android:hint="Nome"
+            android:paddingBottom="5dp"
+            android:paddingTop="10dp"/>
     </LinearLayout>
 
     <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
         android:orientation="horizontal">
 
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/Email"
-            android:layout_marginLeft="10dp"/>
+
 
         <EditText
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:ems="10"
-            android:id="@+id/CampoEmail" />
+            android:id="@+id/CampoEmail"
+            android:hint="Email"
+            android:paddingBottom="5dp"/>
 
     </LinearLayout>
 
@@ -50,96 +41,87 @@
         android:orientation="horizontal"
         android:weightSum="1">
 
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/Senha"
-            android:layout_marginLeft="10dp"/>
+
 
         <EditText
-            android:layout_width="260dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/CampoSenha" />
+            android:id="@+id/CampoSenha"
+            android:hint="Senha"
+            android:paddingBottom="5dp"/>
 
     </LinearLayout>
 
     <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
         android:orientation="horizontal">
 
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/CPF"
-            android:layout_marginLeft="10dp"/>
 
         <EditText
-            android:layout_width="260dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/CampoCPF" />
+            android:id="@+id/CampoCPF"
+            android:hint="CPF"
+            android:paddingBottom="5dp"/>
 
     </LinearLayout>
 
     <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
         android:orientation="horizontal">
 
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/Celular"
-            android:layout_marginLeft="10dp"/>
-
         <EditText
-            android:layout_width="260dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/CampoCelular" />
+            android:id="@+id/CampoCelular"
+            android:hint="Celular"
+            android:paddingBottom="5dp"/>
 
     </LinearLayout>
 
     <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
         android:orientation="horizontal">
 
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/TelComercial"
-            android:layout_marginLeft="10dp"/>
-
         <EditText
-            android:layout_width="215dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/CampoTelComercial" />
+            android:id="@+id/CampoTelComercial"
+            android:hint="Telefone Comercial"
+            android:paddingBottom="5dp"/>
 
     </LinearLayout>
 
     <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
         android:orientation="horizontal">
 
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/TelResidencial"
-            android:layout_marginLeft="10dp"/>
-
         <EditText
-            android:layout_width="215dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/CampoTelResidencial" />
+            android:id="@+id/CampoTelResidencial"
+            android:hint="Telefone Residencial"
+            android:paddingBottom="5dp"/>
 
     </LinearLayout>
 
     <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
         android:orientation="horizontal">
 
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/DataNascimento"
-            android:layout_marginLeft="10dp"/>
-
         <EditText
-            android:layout_width="215dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="date"
             android:ems="10"
-            android:id="@+id/CampoDataNascimento" />
+            android:id="@+id/CampoDataNascimento"
+            android:hint="Data de Nascimento"
+            android:paddingBottom="5dp"/>
 
     </LinearLayout>
 
