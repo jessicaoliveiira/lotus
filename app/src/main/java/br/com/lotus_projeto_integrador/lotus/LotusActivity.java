@@ -53,12 +53,80 @@ public class LotusActivity extends AppCompatActivity {
                 int id = menuItem.getItemId();
 
                 //noinspection SimplifiableIfStatement
-                if (id == R.id.action_config) {
 
-                    ConfigFragment configFragment = new ConfigFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, configFragment).commit();
+                if (id == R.id.action_home) {
+
+                    HomeFragment homeFragment = new HomeFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
                     return true;
                 }
+
+                if (id == R.id.action_login) {
+
+                    LoginFragment2 loginFragment2 = new LoginFragment2();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, loginFragment2).commit();
+                    return true;
+                }
+
+
+
+                if (id == R.id.action_cadastro) {
+
+                    CadastroFragment cadastroFragment = new CadastroFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, cadastroFragment).commit();
+                    return true;
+                }
+
+                if (id == R.id.action_camera) {
+
+                    CameraFragment cameraFragment = new CameraFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, cameraFragment).commit();
+                    return true;
+                }
+
+                if (id == R.id.action_carrinho) {
+
+                    CarrinhoFragment carrinhoFragment = new CarrinhoFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, carrinhoFragment).commit();
+                    return true;
+                }
+
+                if (id == R.id.action_categoria) {
+
+                    CategoriaFragment categoriaFragment = new CategoriaFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, categoriaFragment).commit();
+                    return true;
+                }
+
+                if (id == R.id.action_pedido) {
+
+                    PedidoFragment pedidoFragment = new PedidoFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, pedidoFragment).commit();
+                    return true;
+                }
+
+                if (id == R.id.action_produto) {
+
+                    PedidoFragment pedidoFragment = new PedidoFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, pedidoFragment).commit();
+                    return true;
+                }
+
+                if (id == R.id.action_produto) {
+
+                    ProdutoFragment produtoFragment = new ProdutoFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, produtoFragment).commit();
+                    return true;
+                }
+
+                if (id == R.id.action_sobre) {
+
+                    SobreFragment sobreFragment = new SobreFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, sobreFragment).commit();
+                    return true;
+                }
+
+
 
                 return false;
             }

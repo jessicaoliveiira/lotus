@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <group android:checkableBehavior="single">
-    <item android:id="@+id/action_config"
-        android:title="Configuração"
+
+    <item android:id="@+id/action_home"
+        android:title="Home"
         android:icon="@android:drawable/ic_dialog_dialer"
         android:checked="false"/>
+
+    <item android:id="@+id/action_login"
+        android:title="Login"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:checked="false"/>
+
+    <item android:id="@+id/action_cadastro"
+        android:title="Cadastrar"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:checked="false" />
+
+    <item android:id="@+id/action_camera"
+        android:title="Câmera"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:checked="false"/>
+
+    <item android:id="@+id/action_carrinho"
+        android:title="Carrinho"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:checked="false"/>
+
+    <item android:id="@+id/action_categoria"
+        android:title="Categoria"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:checked="false"/>
+
+    <item android:id="@+id/action_pedido"
+        android:title="Meus Pedidos"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:checked="false"/>
+
+    <item android:id="@+id/action_produto"
+        android:title="Produtos"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:checked="false"/>
+
+    <item android:id="@+id/action_sobre"
+        android:title="Sobre"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:checked="false"/>
+
 </group>
 </menu>
