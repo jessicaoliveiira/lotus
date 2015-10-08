@@ -17,8 +17,10 @@
             android:inputType="textPersonName"
             android:id="@+id/CampoNome"
             android:hint="Nome"
-            android:paddingBottom="5dp"
-            android:paddingTop="10dp"/>
+            android:paddingBottom="15dp"
+            android:paddingTop="30dp"
+            android:textSize="15dp"
+            android:textColorHint="#26a69a" />
     </LinearLayout>
 
     <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
@@ -33,7 +35,9 @@
             android:ems="10"
             android:id="@+id/CampoEmail"
             android:hint="Email"
-            android:paddingBottom="5dp"/>
+            android:paddingBottom="15dp"
+            android:textSize="15dp"
+            android:textColorHint="#26a69a" />
 
     </LinearLayout>
 
@@ -50,7 +54,9 @@
             android:ems="10"
             android:id="@+id/CampoSenha"
             android:hint="Senha"
-            android:paddingBottom="5dp"/>
+            android:paddingBottom="15dp"
+            android:textSize="15dp"
+            android:textColorHint="#26a69a" />
 
     </LinearLayout>
 
@@ -65,7 +71,9 @@
             android:ems="10"
             android:id="@+id/CampoCPF"
             android:hint="CPF"
-            android:paddingBottom="5dp"/>
+            android:paddingBottom="15dp"
+            android:textSize="15dp"
+            android:textColorHint="#26a69a" />
 
     </LinearLayout>
 
@@ -79,7 +87,9 @@
             android:ems="10"
             android:id="@+id/CampoCelular"
             android:hint="Celular"
-            android:paddingBottom="5dp"/>
+            android:paddingBottom="15dp"
+            android:textSize="15dp"
+            android:textColorHint="#26a69a" />
 
     </LinearLayout>
 
@@ -92,8 +102,10 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/CampoTelComercial"
-            android:hint="Telefone Comercial"
-            android:paddingBottom="5dp"/>
+            android:hint="Tel. Comercial"
+            android:paddingBottom="15dp"
+            android:textSize="15dp"
+            android:textColorHint="#26a69a" />
 
     </LinearLayout>
 
@@ -106,8 +118,10 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/CampoTelResidencial"
-            android:hint="Telefone Residencial"
-            android:paddingBottom="5dp"/>
+            android:hint="Tel. Residencial"
+            android:paddingBottom="15dp"
+            android:textSize="15dp"
+            android:textColorHint="#26a69a" />
 
     </LinearLayout>
 
@@ -121,7 +135,10 @@
             android:ems="10"
             android:id="@+id/CampoDataNascimento"
             android:hint="Data de Nascimento"
-            android:paddingBottom="5dp"/>
+            android:paddingBottom="15dp"
+            android:textSize="15dp"
+            android:textIsSelectable="false"
+            android:textColorHint="#26a69a" />
 
     </LinearLayout>
 
@@ -135,15 +152,16 @@
         android:text="Salvar"
         android:id="@+id/BtnSalvar"
         android:layout_gravity="right"
-        android:backgroundTint="#4db6ac"
-        android:layout_marginLeft="100dp" />
+        android:backgroundTint="#009688"
+        android:layout_marginLeft="100dp"
+        android:singleLine="false" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancelar"
         android:id="@+id/BtnCancelar"
-        android:backgroundTint="#4db6ac" />
+        android:backgroundTint="#009688" />
 
     </LinearLayout>
 
