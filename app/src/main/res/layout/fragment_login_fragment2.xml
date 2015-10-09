@@ -43,6 +43,7 @@
         android:id="@+id/BtnEntrar"
         android:backgroundTint="#009688"
         android:singleLine="false"
-        android:layout_marginLeft="40dp"/>
+        android:layout_marginLeft="40dp"
+        android:textColor="#FFF" />
 
 </LinearLayout>
