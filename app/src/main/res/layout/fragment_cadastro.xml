@@ -2,14 +2,30 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="br.com.lotus_projeto_integrador.lotus.CadastroFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <!-- TODO: Update blank fragment layout -->
 
 
 
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
-        android:orientation="horizontal">
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Cadastrar"
+            android:id="@+id/Cadastrar"
+            android:textColor="#009688"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"
+
+            />
 
         <EditText
             android:layout_width="300dp"
@@ -17,16 +33,10 @@
             android:inputType="textPersonName"
             android:id="@+id/CampoNome"
             android:hint="Nome"
-            android:paddingBottom="15dp"
-            android:paddingTop="30dp"
-            android:textSize="15dp"
+            android:paddingTop="50dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15sp"
             android:textColorHint="#26a69a" />
-    </LinearLayout>
-
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
-        android:orientation="horizontal">
-
-
 
         <EditText
             android:layout_width="300dp"
@@ -36,15 +46,9 @@
             android:id="@+id/CampoEmail"
             android:hint="Email"
             android:paddingBottom="15dp"
-            android:textSize="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15sp"
             android:textColorHint="#26a69a" />
-
-    </LinearLayout>
-
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="1">
-
 
 
         <EditText
@@ -55,14 +59,9 @@
             android:id="@+id/CampoSenha"
             android:hint="Senha"
             android:paddingBottom="15dp"
-            android:textSize="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15sp"
             android:textColorHint="#26a69a" />
-
-    </LinearLayout>
-
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
-        android:orientation="horizontal">
-
 
         <EditText
             android:layout_width="300dp"
@@ -72,13 +71,9 @@
             android:id="@+id/CampoCPF"
             android:hint="CPF"
             android:paddingBottom="15dp"
-            android:textSize="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15sp"
             android:textColorHint="#26a69a" />
-
-    </LinearLayout>
-
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
-        android:orientation="horizontal">
 
         <EditText
             android:layout_width="300dp"
@@ -88,13 +83,9 @@
             android:id="@+id/CampoCelular"
             android:hint="Celular"
             android:paddingBottom="15dp"
-            android:textSize="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15sp"
             android:textColorHint="#26a69a" />
-
-    </LinearLayout>
-
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
-        android:orientation="horizontal">
 
         <EditText
             android:layout_width="300dp"
@@ -104,13 +95,9 @@
             android:id="@+id/CampoTelComercial"
             android:hint="Tel. Comercial"
             android:paddingBottom="15dp"
-            android:textSize="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15sp"
             android:textColorHint="#26a69a" />
-
-    </LinearLayout>
-
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
-        android:orientation="horizontal">
 
         <EditText
             android:layout_width="300dp"
@@ -120,13 +107,9 @@
             android:id="@+id/CampoTelResidencial"
             android:hint="Tel. Residencial"
             android:paddingBottom="15dp"
-            android:textSize="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15sp"
             android:textColorHint="#26a69a" />
-
-    </LinearLayout>
-
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
-        android:orientation="horizontal">
 
         <EditText
             android:layout_width="300dp"
@@ -136,15 +119,17 @@
             android:id="@+id/CampoDataNascimento"
             android:hint="Data de Nascimento"
             android:paddingBottom="15dp"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textIsSelectable="false"
-            android:textColorHint="#26a69a" />
+            android:textColorHint="#26a69a"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="15dp"/>
 
     </LinearLayout>
 
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+        >
 
     <Button
         android:layout_width="wrap_content"
@@ -154,18 +139,15 @@
         android:layout_gravity="right"
         android:backgroundTint="#009688"
         android:layout_marginLeft="100dp"
-        android:singleLine="false" />
+        android:singleLine="false"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancelar"
         android:id="@+id/BtnCancelar"
-        android:backgroundTint="#009688" />
+        android:backgroundTint="#009688"
+        />
 
     </LinearLayout>
-
-
 </LinearLayout>
-
-
