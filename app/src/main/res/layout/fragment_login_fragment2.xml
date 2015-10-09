@@ -1,13 +1,48 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="br.com.lotus_projeto_integrador.lotus.LoginFragment2"
     android:orientation="vertical">
 
 
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="@string/Login"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"/>
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/Usuario"
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp"
+        android:hint="Usuário"
+        android:paddingBottom="15dp"
+        android:textSize="15sp"
+        android:textIsSelectable="false"
+        android:textColorHint="#26a69a"
+        android:layout_marginBottom="30dp"
+        />
 
-</FrameLayout>
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:paddingBottom="15dp"
+        android:hint="Senha"
+        android:textSize="15sp"
+        android:textIsSelectable="false"
+        android:textColorHint="#26a69a"
+        />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Entrar"
+        android:id="@+id/BtnEntrar"
+        android:backgroundTint="#009688"
+        android:singleLine="false"
+        android:layout_marginLeft="40dp"/>
+
+</LinearLayout>
