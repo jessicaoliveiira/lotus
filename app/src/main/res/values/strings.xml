@@ -28,4 +28,6 @@
 
     <string name="Login">Login</string>
     <string name="Camera">Câmera</string>
+    <string name="title_activity_endereco">EnderecoActivity</string>
+    <string name="title_activity_pagamento">PagamentoActivity</string>
 </resources>

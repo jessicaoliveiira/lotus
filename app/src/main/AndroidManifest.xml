@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".EnderecoActivity"
+            android:label="@string/title_activity_endereco" >
+        </activity>
+        <activity
+            android:name=".PagamentoActivity"
+            android:label="@string/title_activity_pagamento" >
+        </activity>
     </application>
 
 </manifest>
