@@ -2,16 +2,31 @@ package br.com.lotus_projeto_integrador.lotus;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class PagamentoActivity extends ActionBarActivity {
+public class PagamentoActivity extends AppCompatActivity {
 
+    //private Spinner spn1;
+
+
+    //String cartao[] = {"Opção1", "Opção2", "Opção3"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagamento);
+
+        //spn1 = (Spinner) findViewById(R.id.spinner);
+
+       // ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, cartao);
+       //spn1.setAdapter(arrayAdapter);
     }
 
 

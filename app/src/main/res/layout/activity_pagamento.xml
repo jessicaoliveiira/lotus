@@ -1,13 +1,159 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="br.com.lotus_projeto_integrador.lotus.PagamentoActivity"
-    android:id="@+id/action_pagamento">
+    android:id="@+id/action_pagamento"
+    android:orientation="vertical">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Pagamento"
+            android:id="@+id/Pagamento"
+            android:textColor="#009688"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"/>
+    </LinearLayout>
+
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#009688"
+            android:text="Valor Total:"
+            android:id="@+id/ValorTotal"
+            android:textSize="18dp"
+            android:paddingTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/CampoValorTotal"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:hint="00,00"
+            android:gravity="center"/>
+
+</LinearLayout>
+
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#009688"
+        android:text="Cartão"
+        android:id="@+id/Cartao"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner" />
+
+     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#009688"
+        android:text="Dados do Cartão"
+        android:id="@+id/DadosCartao"
+        android:textSize="18dp"
+        android:paddingTop="15dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:id="@+id/CampoTitular"
+        android:hint="Nome do Titular"
+        android:paddingTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:textColorHint="#26a69a" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/CampoNumCartao"
+        android:hint="Número do Cartão"
+        android:paddingBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:textColorHint="#26a69a" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/CampoCodCartao"
+        android:hint="Código do Cartão"
+        android:paddingBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:textColorHint="#26a69a" />
+
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/ValidCartao"
+        android:paddingBottom="15dp"
+        android:hint="Validade"
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:textColorHint="#26a69a"/>
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finalizar"
+            android:id="@+id/BtnFinalizar"
+            android:layout_gravity="right"
+            android:backgroundTint="#009688"
+            android:layout_marginLeft="100dp"
+            android:singleLine="false"
+            android:textColor="#FFF" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:id="@+id/BtnCancelarPgto"
+            android:backgroundTint="#009688"
+            android:textColor="#FFF" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
