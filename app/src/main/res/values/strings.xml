@@ -30,4 +30,5 @@
     <string name="Camera">Câmera</string>
     <string name="title_activity_endereco">EnderecoActivity</string>
     <string name="title_activity_pagamento">PagamentoActivity</string>
+    <string name="title_activity_prod_categoria">ProdCategoriaActivity</string>
 </resources>
