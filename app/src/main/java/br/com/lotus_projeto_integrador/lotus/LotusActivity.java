@@ -105,12 +105,6 @@ public class LotusActivity extends AppCompatActivity {
                     return true;
                 }
 
-                if (id == R.id.action_produto) {
-
-                    PedidoFragment pedidoFragment = new PedidoFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, pedidoFragment).commit();
-                    return true;
-                }
 
                 if (id == R.id.action_produto) {
 
