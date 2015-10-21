@@ -33,6 +33,8 @@ public class CadastroFragment extends Fragment {
                 //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
                 Intent intent = new Intent(getActivity(), EnderecoActivity.class);
                 startActivity(intent);
+
+
             }
         });
 
