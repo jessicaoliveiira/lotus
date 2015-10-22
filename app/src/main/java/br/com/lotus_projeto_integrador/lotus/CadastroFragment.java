@@ -24,7 +24,7 @@ public class CadastroFragment extends Fragment {
 
 
         //Pass your layout xml to the inflater and assign it to rootView.
-        View view = inflater.inflate(R.layout.fragment_cadastro, container, false);
+        final View view = inflater.inflate(R.layout.fragment_cadastro, container, false);
 
         Button BtnSalvar = (Button) view.findViewById(R.id.BtnSalvar);
         BtnSalvar.setOnClickListener(new View.OnClickListener() {
@@ -34,10 +34,16 @@ public class CadastroFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), EnderecoActivity.class);
                 startActivity(intent);
 
-
             }
         });
+        Button BtnCancelar = (Button) view.findViewById(R.id.BtnCancelar);
 
+        BtnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
 
         return view;
     }
