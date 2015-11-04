@@ -12,11 +12,7 @@
         <activity
             android:name=".LotusActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".EnderecoActivity"
@@ -35,6 +31,20 @@
             android:label="@string/title_activity_prod_categoria"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+
+        <activity
+            android:name=".CameraTestActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
     </application>
 
 </manifest>

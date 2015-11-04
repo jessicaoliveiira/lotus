@@ -79,13 +79,6 @@ public class LotusActivity extends AppCompatActivity {
                     return true;
                 }
 
-                if (id == R.id.action_camera) {
-
-                    CameraFragment cameraFragment = new CameraFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, cameraFragment).commit();
-                    return true;
-                }
-
                 if (id == R.id.action_carrinho) {
 
                     CarrinhoFragment carrinhoFragment = new CarrinhoFragment();
