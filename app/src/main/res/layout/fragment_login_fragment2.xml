@@ -4,6 +4,16 @@
     tools:context="br.com.lotus_projeto_integrador.lotus.LoginFragment2"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="50dp"
+        android:id="@+id/imgLogo"
+        android:src="@drawable/logo_lotus"
+
+        />
 
     <EditText
         android:layout_width="300dp"
@@ -12,7 +22,6 @@
         android:ems="10"
         android:id="@+id/Usuario"
         android:layout_gravity="center"
-        android:layout_marginTop="200dp"
         android:hint="Usuário"
         android:paddingBottom="15dp"
         android:textSize="15sp"

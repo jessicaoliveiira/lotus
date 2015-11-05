@@ -4,27 +4,27 @@
 
     <item android:id="@+id/action_home"
         android:title="Home"
-        android:icon="@android:drawable/ic_dialog_dialer"
+        android:icon="@drawable/ic_home"
         android:checked="false"/>
 
     <item android:id="@+id/action_login"
         android:title="Login"
-        android:icon="@android:drawable/ic_dialog_dialer"
+        android:icon="@drawable/ic_login"
         android:checked="false"/>
 
     <item android:id="@+id/action_cadastro"
         android:title="Cadastrar"
-        android:icon="@android:drawable/ic_dialog_dialer"
+        android:icon="@drawable/ic_cadastrar"
         android:checked="false" />
 
     <item android:id="@+id/action_camera"
         android:title="Câmera"
-        android:icon="@android:drawable/ic_dialog_dialer"
+        android:icon="@drawable/ic_camera"
         android:checked="false"/>
 
     <item android:id="@+id/action_carrinho"
         android:title="Carrinho"
-        android:icon="@android:drawable/ic_dialog_dialer"
+        android:icon="@drawable/ic_carrinho"
         android:checked="false"/>
 
     <item android:id="@+id/action_categoria"
@@ -34,17 +34,17 @@
 
     <item android:id="@+id/action_pedido"
         android:title="Meus Pedidos"
-        android:icon="@android:drawable/ic_dialog_dialer"
+        android:icon="@drawable/ic_pedidos"
         android:checked="false"/>
 
     <item android:id="@+id/action_produto"
         android:title="Produtos"
-        android:icon="@android:drawable/ic_dialog_dialer"
+        android:icon="@drawable/ic_produto"
         android:checked="false"/>
 
     <item android:id="@+id/action_sobre"
         android:title="Sobre"
-        android:icon="@android:drawable/ic_dialog_dialer"
+        android:icon="@drawable/ic_sobre"
         android:checked="false"/>
 
 </group>
