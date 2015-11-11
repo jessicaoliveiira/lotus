@@ -1,0 +1,68 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="br.com.lotus_projeto_integrador.lotus.TermosActivity"
+    android:orientation="vertical"
+    android:scrollbarThumbVertical="@layout/activity_termos">
+
+    <TextView
+        android:text="Lorem ipsum dolor sit amet, quando tantas tacimates eam ei, cu duo numquam vivendo consulatu, sea fugit soluta integre ne. Eu noster atomorum mea, an magna illud accusamus usu. No duo regione reprehendunt. Facer iudicabit his id, has nisl etiam diceret eu, modo magna eleifend pri ea. Et dicat quodsi voluptatibus eam, at stet utinam intellegebat est.
+
+Eu quo explicari repudiandae. Per democritum vituperata no, per at quis essent maluisset. Regione facilis ex nam, esse vitae eligendi ad eum. Integre recusabo liberavisse cu pri, te mea expetenda erroribus molestiae. Mea odio complectitur id, habeo mollis temporibus ne vel.
+
+Vocent utroque similique ex mel, eu nec zril quidam possit. At eum sale mandamus postulant. Id sed agam similique tincidunt, per natum audiam verear ut. Doming suscipit evertitur id vis, an quando iuvaret inermis mea. Populo vivendo lobortis vim eu, molestie tractatos gubergren qui te. Posse error insolens ius at, has cetero gubergren cu.
+
+Ex justo zril vim. Pri ne illud erroribus democritum, cu duo diam nonumes antiopam. In modus incorrupte his. Placerat volutpat cum te. Ut vis integre nusquam indoctum. Posse ullamcorper definitiones mei eu, ignota nostro discere qui ex."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eu aceito os termos de uso do aplicativo"
+        android:id="@+id/checkBox"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center"/>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aceitar"
+            android:id="@+id/btnAceito"
+            android:backgroundTint="#009688"
+            android:textColor="#FFF"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sair"
+            android:id="@+id/btnSair"
+            android:backgroundTint="#009688"
+            android:textColor="#FFF"
+            android:layout_gravity="center_horizontal"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>
+</ScrollView>
