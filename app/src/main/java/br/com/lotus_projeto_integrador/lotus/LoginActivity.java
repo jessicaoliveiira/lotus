@@ -1,37 +1,28 @@
 package br.com.lotus_projeto_integrador.lotus;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
-import android.support.v4.app.Fragment;
 
-
-
-public class LoginFragment2 extends Fragment {
-
-
-    public LoginFragment2() {
-        // Required empty public constructor
-    }
+public class LoginActivity extends Activity {
 
     private EditText editUsuario, editSenha;
-    private LoginFragment2 context;
+    private Context context;
     private UsuarioController usuarioController;
     private AlertDialog.Builder alert;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_login_fragment2, container, false);
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
         context = this;
-        usuarioController = UsuarioController.getInstance(getContext());
-        editUsuario = (EditText) view.findViewById(R.id.editSenha);
-        editSenha = (EditText) view.findViewById(R.id.editUsuario);
+        usuarioController = UsuarioController.getInstance(context);
+        editUsuario = (EditText) findViewById(R.id.editUsuario);
+        editSenha = (EditText) findViewById(R.id.editSenha);
 
         try {
             testaInicializacao();
@@ -40,8 +31,6 @@ public class LoginFragment2 extends Fragment {
             e.printStackTrace();
         }
 
-        return view;
-
     }
 
     /**
@@ -49,7 +38,7 @@ public class LoginFragment2 extends Fragment {
      */
     public void testaInicializacao() throws Exception {
         if (usuarioController.findAll().isEmpty()) {
-            UsuarioLogin usuario = new UsuarioLogin(null, "jessica", "123");
+            UsuarioLogin usuario = new UsuarioLogin(null, "jessica", "12345678");
             usuarioController.insert(usuario);
         }
     }
@@ -58,13 +47,13 @@ public class LoginFragment2 extends Fragment {
      *
      */
     public void exibeDialogo(String mensagem) {
-        alert = new AlertDialog.Builder(getContext());
+        alert = new AlertDialog.Builder(context);
         alert.setPositiveButton("OK", null);
         alert.setMessage(mensagem);
         alert.create().show();
     }
 
-    public void btnValidar (View view) {
+    public void validar(View view) {
         String usuario = editUsuario.getText().toString();
         String senha = editSenha.getText().toString();
 
@@ -81,5 +70,9 @@ public class LoginFragment2 extends Fragment {
         }
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.lotus, menu);
+        return true;
+    }
 }

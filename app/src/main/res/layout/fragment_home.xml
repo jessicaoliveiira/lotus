@@ -49,6 +49,7 @@
             android:background="#4db6ac"
             android:textColor="#fff"
             android:textSize="16sp"
+            android:id="@+id/BtnLogin"
 
             />
 
