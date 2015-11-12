@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class CadastroFragment extends Fragment {
@@ -61,40 +62,33 @@ public class CadastroFragment extends Fragment {
         BtnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                    if (campo_nome.getText().length()==0 || campo_senha.getText().length()<=5){
+                        validator.validateNotNull(campo_nome, "Preencha o campo nome");
+                        validator.validateNotNull(campo_senha, "Preencha o campo senha");
+                        validator.validateNotNull(campo_cpf, "Preencha o campo CPF");
+                        validator.validateNotNull(campo_senha, "O campo senha deve ter no minímo 6 caracter");
+                        boolean cpf_valido = validator.validateCPF(campo_cpf.getText().toString());
+                        if (!cpf_valido) {
+                            campo_cpf.setError("CPF inválido");
+                            campo_cpf.setFocusable(true);
+                            campo_cpf.requestFocus();
+                        }
+                        boolean email_valido = validator.validateEmail(campo_email.getText().toString());
+                        if (!email_valido) {
+                            campo_email.setError("Email inválido");
+                            campo_email.setFocusable(true);
+                            campo_email.requestFocus();
+                        }
 
-                if (TextUtils.isEmpty(campo_nome.getText().toString())) {
-
-
-                validator.validateNotNull(campo_nome,"Preencha o campo nome");
-                validator.validateNotNull(campo_cpf,"Preencha o campo CPF");
-                validator.validateNotNull(campo_senha,"O campo senha deve ter no minímo 6 caracter");
-                boolean cpf_valido = validator.validateCPF(campo_cpf.getText().toString());
-                if(!cpf_valido){
-                    campo_cpf.setError("CPF inválido");
-                    campo_cpf.setFocusable(true);
-                    campo_cpf.requestFocus();
-                }
-                boolean email_valido = validator.validateEmail(campo_email.getText().toString());
-                if(!email_valido){
-                    campo_email.setError("Email inválido");
-                    campo_email.setFocusable(true);
-                    campo_email.requestFocus();
-                }
-                    boolean senha_valido = validator.validateEmail(campo_senha.getText().toString());
-                    if(!senha_valido){
-                        campo_senha.setError("Senha inválida");
-                        campo_senha.setFocusable(true);
-                        campo_senha.requestFocus();
+                    }
+                        else {
+                        Intent intent = new Intent(getActivity(), EnderecoActivity.class);
+                        startActivity(intent);
                     }
 
-                } else {
-                    Intent intent = new Intent(getActivity(), EnderecoActivity.class);
-                    startActivity(intent);
                 }
 
 
-
-            }
         });
         Button BtnCancelar = (Button) view.findViewById(R.id.BtnCancelar);
 
