@@ -45,7 +45,7 @@ Ex justo zril vim. Pri ne illud erroribus democritum, cu duo diam nonumes antiop
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aceitar"
+            android:text="Avançar"
             android:id="@+id/btnAceito"
             android:backgroundTint="#009688"
             android:textColor="#FFF"
