@@ -31,13 +31,10 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     private PreviewCallback previewCallback;
     private AutoFocusCallback autoFocusCallback;
 
-    public CameraPreview(Context context, Camera camera,
-                         PreviewCallback previewCb,
-                         AutoFocusCallback autoFocusCb) {
+    public CameraPreview(Context context, Camera camera) {
         super(context);
         mCamera = camera;
-        previewCallback = previewCb;
-        autoFocusCallback = autoFocusCb;
+
 
         /* 
          * Set camera to continuous focus if supported, otherwise use
