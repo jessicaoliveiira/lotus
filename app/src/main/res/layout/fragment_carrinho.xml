@@ -1,138 +1,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.lotus_projeto_integrador.lotus.CarrinhoFragment"
-    android:orientation="vertical">
-
-    <LinearLayout
+    tools:context="com.example.gustavohmsilva.exercicio6.Produto">
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:weightSum="1"
-        android:paddingBottom="15dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp">
-
+        android:layout_height="match_parent">
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:orientation="horizontal"
-            android:weightSum="1"
-            android:layout_weight="1.40">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:id="@+id/prod_img"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="0.17"
-                />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Produto"
-                    android:id="@+id/txtNomeProduto"
-                    android:textSize="20sp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="5dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="R$0,00"
-                    android:textSize="25sp"
-                    android:id="@+id/txtValorPrecoPor"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:scrollIndicators="bottom|top">
-
-                <NumberPicker
-                    android:layout_width="52dp"
-                    android:layout_height="101dp"
-                    android:id="@+id/pickNumber"
-                    android:orientation="horizontal"
-                    android:solidColor="#009688"
-                    android:baselineAligned="false"
-                    android:backgroundTint="#5dbbb2"
-                    android:scrollIndicators="top" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="25dp"
-                >
-
-                <Button
-                    android:layout_width="51dp"
-                    android:layout_height="wrap_content"
-                    android:text="X"
-                    android:id="@+id/excluirProduto"
-                    android:background="#ec417b"
-                    android:enabled="false"
-                    android:singleLine="false"
-                    android:textAlignment="center"
-                    android:textColor="#fcfcfc" />
-
-            </LinearLayout>
-
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/container2"
+            android:orientation="vertical">
         </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:orientation="horizontal"
-        android:paddingRight="10dp"
-        android:paddingBottom="20dp"
-        android:gravity="bottom">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Voltar as Compras"
-            android:id="@+id/voltarCompras"
-            android:background="#5dbbb2"
-            android:textColor="#fcfcfc"
-            android:layout_marginLeft="35dp"
-            android:layout_marginRight="20dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Finalizar Compra"
-            android:id="@+id/finalizarCompra"
-            android:background="#5dbbb2"
-            android:textColor="#fcfcfc"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            />
-    </LinearLayout>
 </LinearLayout>

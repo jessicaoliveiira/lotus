@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        >
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:id="@+id/imgProduto"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:paddingTop="6dp"
+                android:paddingLeft="16dp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/nomeProduto"/>
+
+
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:paddingLeft="16dp"
+                android:paddingTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/categoriaProduto"/>
+
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:paddingLeft="16dp"
+                android:paddingTop="6dp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/precProduto"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

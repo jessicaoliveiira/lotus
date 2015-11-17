@@ -8,10 +8,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import java.io.InputStream;
-import java.net.URL;
+import java.lang.Exception;import java.lang.Override;import java.lang.String;import java.net.URL;import br.com.lotus_projeto_integrador.lotus.R;
 
 public class DetalhesProduto extends AppCompatActivity {
 
@@ -23,6 +25,15 @@ public class DetalhesProduto extends AppCompatActivity {
         setContentView(R.layout.activity_detalhes_produto);
 
         produtoView = (ImageView)findViewById(R.id.prod_img);
+        Button button = (Button) findViewById(R.id.BtnComprar);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CarrinhoLogico carrinhoLogico = CarrinhoLogico.getInstance();
+                carrinhoLogico.AddItenCarrinho(new CarrinhoProduto(1,"sei la o q",1,32));
+
+            }
+        });
 
         ImageDownloader imageDownloader = new ImageDownloader();
         imageDownloader.execute("https://entreespelhosecabides.files.wordpress.com/2012/11/desenho_risco_beleza1-g.gif");
@@ -33,6 +44,10 @@ public class DetalhesProduto extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.lotus, menu);
         return true;
+
+
+
+
     }
 
     @Override
