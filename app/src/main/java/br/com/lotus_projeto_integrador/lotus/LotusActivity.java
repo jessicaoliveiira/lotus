@@ -81,7 +81,7 @@ public class LotusActivity extends AppCompatActivity {
 
                 if (id == R.id.action_carrinho) {
 
-                    CarrinhoFragment carrinhoFragment = new CarrinhoFragment();
+                    Carrinho carrinhoFragment = new Carrinho();
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, carrinhoFragment).commit();
                     return true;
                 }
@@ -133,6 +133,8 @@ public class LotusActivity extends AppCompatActivity {
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
+        HomeFragment homeFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
     }
 
 

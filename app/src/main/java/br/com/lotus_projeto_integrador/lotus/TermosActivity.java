@@ -75,7 +75,7 @@ public class TermosActivity extends AppCompatActivity {
               }
         });
                     } else {
-                        Intent intent = new Intent(TermosActivity.this, EnderecoActivity.class);
+                        Intent intent = new Intent(TermosActivity.this, LotusActivity.class);
                         startActivity(intent);
                         finish();
                     }
