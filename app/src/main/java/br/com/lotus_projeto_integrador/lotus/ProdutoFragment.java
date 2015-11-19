@@ -23,13 +23,13 @@ public class ProdutoFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_produto, container, false);
 
-        container = (ViewGroup) view.findViewById(R.id.container);
+        this.container = (ViewGroup) view.findViewById(R.id.container);
 
         for (int i = 0; i < 10; i++){
             addItem("nomeProduto " + i, "categoriaProduto" +i, "precProduto" +i);
         }
 
-            return container;
+        return view;
     }
 
     private void addItem(String nomeProduto, String categoriaProduto, String precProduto) {
