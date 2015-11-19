@@ -79,6 +79,12 @@ public class LotusActivity extends AppCompatActivity {
                     return true;
                 }
 
+                if (id == R.id.action_camera){
+
+                    Intent intent = new Intent(LotusActivity.this, CameraTestActivity.class);
+                    startActivity(intent);
+                }
+
                 if (id == R.id.action_carrinho) {
 
                     Carrinho carrinhoFragment = new Carrinho();
@@ -107,7 +113,6 @@ public class LotusActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, sobreFragment).commit();
                     return true;
                 }
-
 
 
                 return false;

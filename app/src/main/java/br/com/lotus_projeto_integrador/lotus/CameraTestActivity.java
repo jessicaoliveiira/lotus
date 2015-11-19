@@ -51,7 +51,7 @@ public class CameraTestActivity extends Activity
 
         if (mCameraPreview == null) {
             mCameraPreview = new CameraPreview(this, mCamera);
-            //mFlCameraPreview.addView(mCameraPreview);
+            mFlCameraPreview.addView(mCameraPreview);
         }
 
     }
