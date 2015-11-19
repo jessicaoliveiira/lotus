@@ -64,7 +64,6 @@ public class CadastroFragment extends Fragment {
             public void onClick(View v) {
                     if (campo_nome.getText().length()==0 || campo_senha.getText().length()<=5){
                         validator.validateNotNull(campo_nome, "Preencha o campo nome");
-                        validator.validateNotNull(campo_senha, "Preencha o campo senha");
                         validator.validateNotNull(campo_cpf, "Preencha o campo CPF");
                         validator.validateNotNull(campo_senha, "O campo senha deve ter no minímo 6 caracter");
                         boolean cpf_valido = validator.validateCPF(campo_cpf.getText().toString());
@@ -90,12 +89,14 @@ public class CadastroFragment extends Fragment {
 
 
         });
+
         Button BtnCancelar = (Button) view.findViewById(R.id.BtnCancelar);
 
         BtnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().popBackStack();
+                Intent intent = new Intent(getActivity(), LotusActivity.class);
+                startActivity(intent);
             }
         });
 

@@ -93,13 +93,6 @@ public class LotusActivity extends AppCompatActivity {
                     return true;
                 }
 
-                if (id == R.id.action_pedido) {
-
-                    PedidoFragment pedidoFragment = new PedidoFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, pedidoFragment).commit();
-                    return true;
-                }
-
 
                 if (id == R.id.action_produto) {
 
@@ -158,6 +151,8 @@ public class LotusActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Carrinho carrinho = new Carrinho();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, carrinho).commit();
             return true;
         }
 

@@ -32,11 +32,6 @@
         android:icon="@android:drawable/ic_dialog_dialer"
         android:checked="false"/>
 
-    <item android:id="@+id/action_pedido"
-        android:title="Meus Pedidos"
-        android:icon="@drawable/ic_pedidos"
-        android:checked="false"/>
-
     <item android:id="@+id/action_produto"
         android:title="Produtos"
         android:icon="@drawable/ic_produto"
