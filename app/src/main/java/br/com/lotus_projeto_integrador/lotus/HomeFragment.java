@@ -21,6 +21,15 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        Button btnCamera = (Button) view.findViewById(R.id.btnCamera);
+        btnCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CameraTestActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Button BtnLogin = (Button) view.findViewById(R.id.BtnLogin);
         BtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
