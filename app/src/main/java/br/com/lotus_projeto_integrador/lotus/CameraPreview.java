@@ -31,12 +31,15 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     private PreviewCallback previewCallback;
     private AutoFocusCallback autoFocusCallback;
 
-    public CameraPreview(Context context, Camera camera) {
+    public CameraPreview(Context context, Camera camera,
+                         PreviewCallback previewCb,
+                         AutoFocusCallback autoFocusCb) {
         super(context);
         mCamera = camera;
+        previewCallback = previewCb;
+        autoFocusCallback = autoFocusCb;
 
-
-        /* 
+        /*
          * Set camera to continuous focus if supported, otherwise use
          * software auto-focus. Only works for API level >=9.
          */
@@ -79,15 +82,15 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
          * Make sure to stop the preview before resizing or reformatting it.
          */
         if (mHolder.getSurface() == null){
-          // preview surface does not exist
-          return;
+            // preview surface does not exist
+            return;
         }
 
         // stop preview before making changes
         try {
             mCamera.stopPreview();
         } catch (Exception e){
-          // ignore: tried to stop a non-existent preview
+            // ignore: tried to stop a non-existent preview
         }
 
         try {

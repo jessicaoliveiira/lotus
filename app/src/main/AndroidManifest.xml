@@ -43,6 +43,10 @@
 
         </activity>
         <activity
+            android:name=".ResultadoQRActivity"
+            android:label="@string/title_activity_resultado_qr" >
+        </activity>
+        <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
