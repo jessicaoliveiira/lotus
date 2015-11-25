@@ -51,7 +51,7 @@ public class CadastroFragment extends Fragment {
         final EditText campo_telefone = (EditText) view.findViewById(R.id.CampoCelular);
         campo_telefone.addTextChangedListener(Mask.insert("(##)####-#####", campo_telefone));
 
-        final EditText campo_telefone_residencial = (EditText) view.findViewById(R.id.CampoTelResidencial);
+        final EditText campo_telefone_residencial = (EditText) view.findViewById(R.id.CampoTelComercial);
         campo_telefone_residencial.addTextChangedListener(Mask.insert("(##)####-####", campo_telefone_residencial));
 
         final EditText campo_email = (EditText) view.findViewById(R.id.CampoEmail);
@@ -62,7 +62,7 @@ public class CadastroFragment extends Fragment {
         BtnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    if (campo_nome.getText().length()==0 || campo_senha.getText().length()<=5){
+                    if (campo_nome.getText().length()==0 || campo_senha.getText().length()<=3){
                         validator.validateNotNull(campo_nome, "Preencha o campo nome");
                         validator.validateNotNull(campo_cpf, "Preencha o campo CPF");
                         validator.validateNotNull(campo_senha, "O campo senha deve ter no minímo 6 caracter");

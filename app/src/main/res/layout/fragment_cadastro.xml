@@ -94,19 +94,7 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/CampoTelComercial"
-            android:hint="Tel. Comercial"
-            android:paddingBottom="15dp"
-            android:layout_marginLeft="15dp"
-            android:textSize="15sp"
-            android:textColorHint="#26a69a" />
-
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/CampoTelResidencial"
-            android:hint="Tel. Residencial"
+            android:hint="Tel. Fixo"
             android:paddingBottom="15dp"
             android:layout_marginLeft="15dp"
             android:textSize="15sp"
