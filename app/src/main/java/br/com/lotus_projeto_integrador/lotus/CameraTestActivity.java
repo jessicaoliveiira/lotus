@@ -117,13 +117,15 @@ public class CameraTestActivity extends Activity {
                 mCamera.stopPreview();
 
                 SymbolSet syms = scanner.getResults();
-                Intent intent = new Intent(CameraTestActivity.this, ResultadoQRActivity.class);
+
                 for (Symbol sym : syms) {
+                    Intent intent = new Intent(CameraTestActivity.this, DetalhesProduto.class);
                     intent.putExtra("resultado", sym.getData());
+                    startActivity(intent);
+                    finish();
                 }
 
-                startActivity(intent);
-                finish();
+
             }
         }
     };
