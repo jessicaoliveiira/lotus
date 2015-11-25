@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,8 +52,8 @@ public class ProdutoFragment extends Fragment {
         TextView prec = (TextView) cardView.findViewById(R.id.precProduto);
 
         nome.setText(nomeProduto);
-        categoria.setText(categoriaProduto);
-        prec.setText((int) precProduto);
+        categoria.setText(Integer.toString(categoriaProduto));
+        prec.setText(Double.toString(precProduto));
 
         container.addView(cardView);
 
@@ -64,7 +65,7 @@ public class ProdutoFragment extends Fragment {
         protected String doInBackground(String... params) {
             try {
 
-                URL url = new URL("http://tsitomcat.azurewebsites.net/julietg1/rest/produtoid/");
+                URL url = new URL("http://tsitomcat.azurewebsites.net/julietg1/rest/produtoid/2");
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
                 InputStream in = urlConnection.getInputStream();
@@ -79,6 +80,8 @@ public class ProdutoFragment extends Fragment {
                 while ((inputStr = reader.readLine()) != null) responseStrBuilder.append(inputStr);
 
                 String respostaCompleta = responseStrBuilder.toString();
+
+                Log.v("Json", respostaCompleta);
 
                 return respostaCompleta;
 
@@ -95,21 +98,21 @@ public class ProdutoFragment extends Fragment {
             try {
                 JSONArray json = new JSONArray(s);
                 for (int i = 0; i < json.length(); i++) {
-                    JSONObject jsonobject = json.getJSONObject(0);
+                    JSONObject jsonobject = json.getJSONObject(i);
                     //JSONObject json = new JSONObject(s);
 
                     int idProduto = jsonobject.getInt("idProduto");
                     String nomeProduto = jsonobject.getString("nomeProduto");
-                    Double precProduto = jsonobject.getDouble("precProduto");
+                    Double precProduto = jsonobject.getDouble("precoProduto");
                     Double descontoPromocao = jsonobject.getDouble("descontoPromocao");
-                    String descProduto = jsonobject.getString("descProduto");
-                    int categoriaProduto = jsonobject.getInt("categoriaProduto");
+                    //String descProduto = jsonobject.getString("descProduto");
+                    //int categoriaProduto = jsonobject.getInt("categoriaProduto");
 
-                    addItem(idProduto, nomeProduto, precProduto, descProduto, descontoPromocao, categoriaProduto);
+                    addItem(idProduto, nomeProduto, precProduto, "", descontoPromocao, 1);
                 }
 
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
         }
     }
