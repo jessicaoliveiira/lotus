@@ -1,6 +1,7 @@
 package br.com.lotus_projeto_integrador.lotus;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -10,6 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 public class EnderecoActivity extends AppCompatActivity {
@@ -74,5 +83,68 @@ public class EnderecoActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public class ConexaoWeb extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                URL url = new URL("http://tsitomcat.azurewebsites.net/julietg1/rest/produtoid/2");
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+                InputStream in = urlConnection.getInputStream();
+
+                //Cria um leitor para ler a resposta
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+
+                StringBuilder responseStrBuilder = new StringBuilder();
+                String inputStr;
+
+                //Lê linha a linha a resposta e armazena no StringBuilder
+                while ((inputStr = reader.readLine()) != null)
+                    responseStrBuilder.append(inputStr);
+
+                //Transforma o StringBuilder em String, que contém a resposta final
+                String respostaCompleta = responseStrBuilder.toString();
+
+                return respostaCompleta;
+
+            } catch (Exception e) {
+
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            try {
+                JSONObject json = new JSONObject(s);
+                String CampoEndereco = json.getString("CampoEndereco");
+                String CampoLogradouro = json.getString("CampoLogradouro");
+                String CampoNumero = json.getString("CampoNumero");
+                String CampoCompl = json.getString("CampoCompl");
+                String CampoCEP = json.getString("CampoCEP");
+                String CampoCidade = json.getString("CampoCidade");
+                String CampoPais = json.getString("CampoPais");
+
+
+
+                Intent intent = new Intent(EnderecoActivity.this, LotusActivity.class);
+
+                intent.putExtra("CampoEndereco", CampoEndereco);
+                intent.putExtra("CampoLogradouro", CampoLogradouro);
+                intent.putExtra("CampoNumero", CampoNumero);
+                intent.putExtra("CampoCompl", CampoCompl);
+                intent.putExtra("CampoCEP", CampoCEP);
+                intent.putExtra("CampoCidade", CampoCidade);
+                intent.putExtra("CampoPais", CampoPais);
+                
+
+                startActivity(intent);
+
+
+
+            } catch (Exception e) {
+
+            }
+        }
     }
 }
