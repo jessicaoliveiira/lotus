@@ -41,6 +41,20 @@ public class DetalhesProduto extends AppCompatActivity {
         ConexaoWeb conexaoWeb = new ConexaoWeb();
         conexaoWeb.execute(idProduto);
 
+        Intent intent1 = getIntent();
+        String idProduto = intent.getStringExtra("idProduto");
+
+        String txtNomeProduto = intent.getStringExtra("nomeProduto");
+        TextView TextView= (TextView) findViewById(R.id.txtNomeProduto);
+        TextView.setText("" + txtNomeProduto);
+
+        String txtCategProduto = intent.getStringExtra("nomeCategoria");
+        TextView  = (TextView) findViewById(R.id.txtCategProduto);
+        TextView.setText(""  + txtCategProduto);
+
+        String precProduto = intent.getStringExtra("precProduto");
+        TextView  = (TextView) findViewById(R.id.txtValorPrecoDe);
+        TextView.setText("" + precProduto);
 
 
         produtoView = (ImageView) findViewById(R.id.prod_img);
@@ -67,7 +81,6 @@ public class DetalhesProduto extends AppCompatActivity {
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
                 InputStream in = urlConnection.getInputStream();
-
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
 

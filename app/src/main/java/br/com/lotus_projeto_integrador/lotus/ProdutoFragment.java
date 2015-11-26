@@ -44,8 +44,20 @@ public class ProdutoFragment extends Fragment {
         return view;
     }
 
-    private void addItem(int id, String nomeProduto, double precProduto, String descProduto, double descontoPromocao, int categoriaProduto) {
+    private void addItem(final int id, final String nomeProduto, final double precProduto, String descProduto, double descontoPromocao, int categoriaProduto) {
         CardView cardView = (CardView) LayoutInflater.from(getActivity()).inflate(R.layout.cardviewproduto, container, false);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DetalhesProduto.class);
+                intent.putExtra("idProduto", id);
+                intent.putExtra("nomeProduto", nomeProduto);
+                intent.putExtra("precProduto", precProduto);
+                startActivity(intent);
+            }
+        });
+
+
 
         TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
         TextView categoria = (TextView) cardView.findViewById(R.id.categoriaProduto);
@@ -109,6 +121,8 @@ public class ProdutoFragment extends Fragment {
                     //int categoriaProduto = jsonobject.getInt("categoriaProduto");
 
                     addItem(idProduto, nomeProduto, precProduto, "", descontoPromocao, 1);
+
+
                 }
 
             } catch (Exception e) {
