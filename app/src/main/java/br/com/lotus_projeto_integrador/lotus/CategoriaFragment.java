@@ -50,14 +50,11 @@ public class CategoriaFragment extends Fragment {
     }
 
     private void addItem(int idCategoria, String nomeCategoria) {
-        CardView cardView = (CardView) LayoutInflater.from(getActivity()).inflate(R.layout.cardviewproduto, container, false);
+        CardView cardView = (CardView) LayoutInflater.from(getActivity()).inflate(R.layout.cardviewcategoria, container, false);
 
 
         TextView nome = (TextView) cardView.findViewById(R.id.nomeCategoria);
-
-
         nome.setText(nomeCategoria);
-
         container.addView(cardView);
 
     }
