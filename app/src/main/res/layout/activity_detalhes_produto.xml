@@ -138,9 +138,9 @@
             android:layout_marginRight="2.5px"
             android:text="Voltar"
             android:id="@+id/BtnComprar"
-            android:backgroundTint="#4db6ac"
+            android:backgroundTint="#009688"
             android:layout_weight="0.06"
-            android:textColor="#f0f0f0"
+            android:textColor="#FFF"
             android:drawableLeft="@drawable/ic_voltar" />
 
         <Button
@@ -149,9 +149,9 @@
             android:layout_marginLeft="2.5px"
             android:text="Comprar"
             android:id="@+id/BtnVoltar"
-            android:backgroundTint="#4db6ac"
+            android:backgroundTint="#009688"
             android:layout_weight="0.06"
-            android:textColor="#f0f0f0"
+            android:textColor="#FFF"
             android:drawableLeft="@drawable/ic_comprar" />
 
     </LinearLayout>

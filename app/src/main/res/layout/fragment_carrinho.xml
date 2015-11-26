@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.gustavohmsilva.exercicio6.Produto">
+    tools:context="br.com.lotus_projeto_integrador.lotus.Produto">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
