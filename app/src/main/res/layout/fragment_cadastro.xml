@@ -12,7 +12,9 @@
 
 
 
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         android:orientation="vertical">
 
         <TextView
@@ -24,6 +26,7 @@
             android:textColor="#009688"
             android:textStyle="bold"
             android:textSize="20dp"
+            android:layout_marginTop="25dp"
             android:layout_gravity="center"
 
             />
@@ -116,20 +119,10 @@
 
     </LinearLayout>
 
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
-        android:orientation="horizontal"
-        >
-
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
         android:layout_height="wrap_content"
-        android:text="Salvar"
-        android:id="@+id/BtnSalvar"
-        android:layout_gravity="right"
-        android:backgroundTint="#009688"
-        android:layout_marginLeft="100dp"
-        android:singleLine="false"
-        android:textColor="#FFF" />
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
 
     <Button
         android:layout_width="wrap_content"
@@ -137,7 +130,18 @@
         android:text="Cancelar"
         android:id="@+id/BtnCancelar"
         android:backgroundTint="#009688"
+        android:layout_marginLeft="100dp"
         android:textColor="#FFF" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salvar"
+            android:id="@+id/BtnSalvar"
+            android:layout_gravity="right"
+            android:backgroundTint="#009688"
+            android:singleLine="false"
+            android:textColor="#FFF" />
 
     </LinearLayout>
 </LinearLayout>

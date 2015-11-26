@@ -47,6 +47,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_temos">Lotus</string>
     <string name="title_activity_resultado_qr">Resultado QR Code</string>
+    <string name="title_activity_detalhes">DetalhesActivity</string>
 
 
 </resources>

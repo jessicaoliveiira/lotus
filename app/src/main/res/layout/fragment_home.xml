@@ -1,60 +1,44 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="br.com.lotus_projeto_integrador.lotus.HomeFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <ImageView
-        android:layout_width="280dp"
-        android:layout_height="280dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginLeft="50dp"
-        android:id="@+id/imgLogo"
-        android:src="@drawable/logo_lotus"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/imgLogo"
+            android:src="@drawable/logo_lotus"
+            android:layout_gravity="center"
+           />
 
-        />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="right">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnCamera"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="45dp"
-        >
-
-
-
-        <Button
-            android:id="@+id/btnCamera"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:text="CÂMERA"
-            android:background="#4db6ac"
-            android:textColor="#fff"
-            android:textSize="16sp"
-            android:layout_marginBottom="30dp"
-
-
-            android:drawableTintMode="screen"
-            android:drawableLeft="@drawable/ic_camera" />
-
-        <Button
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:text="LOGIN"
-            android:drawableLeft="@drawable/ic_login"
-            android:background="#4db6ac"
-            android:textColor="#fff"
-            android:textSize="16sp"
-            android:id="@+id/BtnLogin"
-
-            />
-
-    </LinearLayout>
-
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/fab_margin"
+        app:elevation="4dp"
+        app:pressedTranslationZ="8dp"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        android:src="@drawable/ic_camera" />
 
 </LinearLayout>
+
+
+
+
+</RelativeLayout>

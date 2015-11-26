@@ -4,12 +4,23 @@
     tools:context="br.com.lotus_projeto_integrador.lotus.LoginActivity"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"></GridLayout>
+    </RelativeLayout>
+
     <ImageView
-        android:layout_width="280dp"
-        android:layout_height="280dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginTop="100dp"
         android:id="@+id/imgLogo"
         android:src="@drawable/logo_lotus"
 
@@ -53,7 +64,8 @@
         android:id="@+id/btnValidar"
         android:backgroundTint="#009688"
         android:singleLine="false"
-        android:layout_marginLeft="40dp"
-        android:textColor="#FFF" />
+        android:layout_gravity="center"
+        android:textColor="#FFF"
+        android:src="@drawable/ic_entrar"/>
 
 </LinearLayout>

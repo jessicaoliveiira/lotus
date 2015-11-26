@@ -140,7 +140,8 @@
             android:id="@+id/BtnComprar"
             android:backgroundTint="#4db6ac"
             android:layout_weight="0.06"
-            android:textColor="#f0f0f0" />
+            android:textColor="#f0f0f0"
+            android:drawableLeft="@drawable/ic_voltar" />
 
         <Button
             android:layout_width="80dp"
@@ -150,7 +151,8 @@
             android:id="@+id/BtnVoltar"
             android:backgroundTint="#4db6ac"
             android:layout_weight="0.06"
-            android:textColor="#f0f0f0" />
+            android:textColor="#f0f0f0"
+            android:drawableLeft="@drawable/ic_comprar" />
 
     </LinearLayout>
 
