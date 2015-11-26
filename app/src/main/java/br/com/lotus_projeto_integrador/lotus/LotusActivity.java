@@ -87,9 +87,8 @@ public class LotusActivity extends AppCompatActivity {
 
                 if (id == R.id.action_carrinho) {
 
-                    Carrinho carrinhoFragment = new Carrinho();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, carrinhoFragment).commit();
-                    return true;
+                    Intent intent = new Intent(LotusActivity.this, CarrinhoActivity.class);
+                    startActivity(intent);
                 }
 
                 if (id == R.id.action_categoria) {
@@ -156,8 +155,8 @@ public class LotusActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Carrinho carrinho = new Carrinho();
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, carrinho).commit();
+            Intent intent = new Intent(LotusActivity.this, CarrinhoActivity.class);
+            startActivity(intent);
             return true;
         }
 

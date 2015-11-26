@@ -42,9 +42,10 @@ public class DetalhesProduto extends AppCompatActivity {
         conexaoWeb.execute(idProduto);
 
         Intent intent1 = getIntent();
-        String idProduto = intent.getStringExtra("idProduto");
+        final int idProduto = intent.getIntExtra("idProduto", 0);
 
-        String txtNomeProduto = intent.getStringExtra("nomeProduto");
+
+        final String txtNomeProduto = intent.getStringExtra("nomeProduto");
         TextView TextView= (TextView) findViewById(R.id.txtNomeProduto);
         TextView.setText("" + txtNomeProduto);
 
@@ -52,18 +53,22 @@ public class DetalhesProduto extends AppCompatActivity {
         TextView  = (TextView) findViewById(R.id.txtCategProduto);
         TextView.setText(""  + txtCategProduto);
 
-        String precProduto = intent.getStringExtra("precProduto");
+        final double precProduto = intent.getDoubleExtra("precProduto",0);
         TextView  = (TextView) findViewById(R.id.txtValorPrecoDe);
         TextView.setText("" + precProduto);
 
 
         produtoView = (ImageView) findViewById(R.id.prod_img);
+
         Button button = (Button) findViewById(R.id.BtnComprar);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CarrinhoLogico carrinhoLogico = CarrinhoLogico.getInstance();
-                carrinhoLogico.AddItenCarrinho(new CarrinhoProduto(1, "sei la o q", 1, 32));
+                carrinhoLogico.AddItenCarrinho(new CarrinhoProduto(idProduto, txtNomeProduto,1,precProduto));
+
+                Intent intent = new Intent(DetalhesProduto.this, CarrinhoActivity.class);
+                startActivity(intent);
 
             }
         });

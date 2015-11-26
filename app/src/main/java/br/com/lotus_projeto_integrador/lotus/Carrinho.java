@@ -35,10 +35,7 @@ adicinar itens no carrinho
 * */
 
         CarrinhoLogico carrinhoLogico = CarrinhoLogico.getInstance();
-        carrinhoLogico.AddItenCarrinho(new CarrinhoProduto(1,"Macarrão",2,60));
-        carrinhoLogico.AddItenCarrinho(new CarrinhoProduto(1,"Macarrão Elio",2,60));
-        carrinhoLogico.AddItenCarrinho(new CarrinhoProduto(2,"Macarrão",2,60));
-        carrinhoLogico.AddItenCarrinho(new CarrinhoProduto(6,"Macarrão pato ganço do tico e teco", 2, 60));
+
 
         container2 = (ViewGroup) view.findViewById(R.id.container2);
 
