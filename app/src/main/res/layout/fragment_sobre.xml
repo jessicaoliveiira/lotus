@@ -57,8 +57,8 @@
     <ImageView
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:id="@+id/Cinthia"
-        android:src="@drawable/Cinthia"/>
+        android:id="@+id/cinthia"
+        android:src="@drawable/cinthia"/>
 
 
     <TextView
@@ -83,8 +83,8 @@
         <ImageView
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:id="@+id/Gustavo"
-            android:src="@drawable/Gustavo"/>
+            android:id="@+id/gustavo"
+            android:src="@drawable/gustavo"/>
 
 
         <TextView
@@ -109,8 +109,8 @@
         <ImageView
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:id="@+id/Jessica"
-            android:src="@drawable/Jessica"/>
+            android:id="@+id/jessica"
+            android:src="@drawable/jessica"/>
 
 
         <TextView
@@ -135,8 +135,8 @@
         <ImageView
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:id="@+id/Rony"
-            android:src="@drawable/Rony"/>
+            android:id="@+id/rony"
+            android:src="@drawable/rony"/>
 
 
         <TextView
