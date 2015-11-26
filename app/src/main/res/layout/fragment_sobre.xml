@@ -1,10 +1,44 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.lotus_projeto_integrador.lotus.SobreFragment">
+    tools:context="br.com.lotus_projeto_integrador.lotus.SobreFragment"
+    android:orientation="vertical"
+    android:visibility="visible">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Sobre"
+            android:id="@+id/Sobre"
+            android:textColor="#009688"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"
+            android:textAlignment="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Este Aplicativo foi realizado para o Projeto Integrador do curso de Tecnologia em Sistemas para Internet do Senac."
+        android:id="@+id/TextoSobre"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Criado por: Cinthia Ferraz, Gustavo Rios, Jessica Oliveira e Rony Rocha."
+        android:id="@+id/Integrantes"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"/>
+
+
+</LinearLayout>
