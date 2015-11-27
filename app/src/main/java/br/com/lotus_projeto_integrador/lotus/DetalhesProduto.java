@@ -72,7 +72,14 @@ public class DetalhesProduto extends AppCompatActivity {
 
             }
         });
+        final Button BtnVoltar = (Button) findViewById(R.id.BtnVoltar);
 
+        BtnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 
