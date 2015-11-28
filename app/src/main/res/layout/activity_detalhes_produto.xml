@@ -47,13 +47,6 @@
                 android:textSize="40px"
                 />
 
-            <TextView
-                android:id="@+id/txtCategProduto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txtCategProd"
-                android:paddingBottom="30px"/>
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,7 +64,6 @@
                     android:id="@+id/txtValorPrecoDe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtValorPrecoDe"
                     android:paddingBottom="10px"
                     android:paddingLeft="10px"
                     android:textSize="30px"/>
@@ -119,7 +111,6 @@
             android:id="@+id/txtDescProduto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txtDescProd"
             android:paddingBottom="10px"
             android:textAlignment="center"
             android:textSize="40px"/>

@@ -48,13 +48,15 @@ public class DetalhesProduto extends AppCompatActivity {
         TextView TextView= (TextView) findViewById(R.id.txtNomeProduto);
         TextView.setText("" + nomeProduto);
 
-        String txtCategProduto = intent1.getStringExtra("nomeCategoria");
-        TextView  = (TextView) findViewById(R.id.txtCategProduto);
-        TextView.setText(""  + txtCategProduto);
-
-        final double precProduto = intent1.getDoubleExtra("precProduto",0);
+        final double precProduto = intent1.getDoubleExtra("precProduto", 0);
         TextView  = (TextView) findViewById(R.id.txtValorPrecoDe);
         TextView.setText("" + precProduto);
+
+        String txtDescProduto = intent1.getStringExtra("txtDescProduto");
+        TextView  = (TextView) findViewById(R.id.txtDescProduto);
+        TextView.setText(""  + txtDescProduto);
+
+
 
 
         produtoView = (ImageView) findViewById(R.id.prod_img);
@@ -128,6 +130,7 @@ public class DetalhesProduto extends AppCompatActivity {
                     String nomeProduto = jsonobject.getString("nomeProduto");
                     Double precProduto = jsonobject.getDouble("precoProduto");
                     Double descontoPromocao = jsonobject.getDouble("descontoPromocao");
+                    String DescricaoProduto = jsonobject.getString("txtDescProduto");
 
                     TextView Nome = (TextView)findViewById(R.id.txtNomeProduto);
                     Nome.setText(nomeProduto);
@@ -137,6 +140,9 @@ public class DetalhesProduto extends AppCompatActivity {
 
                     TextView Desconto = (TextView)findViewById(R.id.txtValorPrecoDe);
                     Desconto.setText(Double.toString(descontoPromocao));
+
+                    TextView Descricao = (TextView)findViewById(R.id.txtDescProduto);
+                    Descricao.setText(DescricaoProduto);
 
                 }
 

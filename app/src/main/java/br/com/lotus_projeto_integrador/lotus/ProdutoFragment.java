@@ -44,7 +44,7 @@ public class ProdutoFragment extends Fragment {
         return view;
     }
 
-    private void addItem(final int id, final String nomeProduto, final double precProduto, String descProduto, double descontoPromocao, int categoriaProduto) {
+    private void addItem(final int id, final String nomeProduto, final double precProduto, final String descProduto, double descontoPromocao, int categoriaProduto) {
         CardView cardView = (CardView) LayoutInflater.from(getActivity()).inflate(R.layout.cardviewproduto, container, false);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +77,7 @@ public class ProdutoFragment extends Fragment {
         protected String doInBackground(String... params) {
             try {
 
-                URL url = new URL("http://tsitomcat.azurewebsites.net/julietg1/rest/produtoid/2");
+                URL url = new URL("http://tsitomcat.azurewebsites.net/lotus/rest/produtoAll/");
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
                 InputStream in = urlConnection.getInputStream();
@@ -117,7 +117,7 @@ public class ProdutoFragment extends Fragment {
                     String nomeProduto = jsonobject.getString("nomeProduto");
                     Double precProduto = jsonobject.getDouble("precoProduto");
                     Double descontoPromocao = jsonobject.getDouble("descontoPromocao");
-                    //String descProduto = jsonobject.getString("descProduto");
+                    String descProduto = jsonobject.getString("descProduto");
                     //int categoriaProduto = jsonobject.getInt("categoriaProduto");
 
                     addItem(idProduto, nomeProduto, precProduto, "", descontoPromocao, 1);

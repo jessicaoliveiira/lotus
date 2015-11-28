@@ -77,7 +77,7 @@ public class CategoriaFragment extends Fragment {
         protected String doInBackground(String... params) {
             try {
 
-                URL url = new URL("http://tsitomcat.azurewebsites.net/julietg1/rest/categoria");
+                URL url = new URL("http://tsitomcat.azurewebsites.net/lotus/rest/categoria/");
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
                 InputStream in = urlConnection.getInputStream();
