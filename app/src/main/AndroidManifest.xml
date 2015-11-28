@@ -18,6 +18,10 @@
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:name=".ProdCategoriaActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
             android:name=".EnderecoActivity"
             android:label="@string/title_activity_endereco" >
         </activity>
@@ -28,11 +32,6 @@
         <activity
             android:name=".DetalhesProduto"
             android:label="@string/app_name" >
-        </activity>
-        <activity
-            android:name=".ProdCategoriaActivity"
-            android:label="@string/title_activity_prod_categoria"
-            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".CameraTestActivity"

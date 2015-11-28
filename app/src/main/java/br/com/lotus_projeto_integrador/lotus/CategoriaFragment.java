@@ -1,5 +1,6 @@
 package br.com.lotus_projeto_integrador.lotus;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -26,9 +27,13 @@ public class CategoriaFragment extends Fragment {
 
     private ViewGroup container;
 
+
+
     public CategoriaFragment() {
         // Required empty public constructor
     }
+
+
 
 
 
@@ -37,7 +42,7 @@ public class CategoriaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-       View view = inflater.inflate(R.layout.fragment_categoria, container, false);
+        View view = inflater.inflate(R.layout.fragment_categoria, container, false);
 
 
         this.container = (ViewGroup) view.findViewById(R.id.container);
@@ -45,12 +50,23 @@ public class CategoriaFragment extends Fragment {
         ConexaoWeb conexaoWeb = new ConexaoWeb();
         conexaoWeb.execute();
 
+
+
         return view;
 
     }
 
-    private void addItem(int idCategoria, String nomeCategoria) {
+    private void addItem(final int idCategoria, String nomeCategoria) {
         CardView cardView = (CardView) LayoutInflater.from(getActivity()).inflate(R.layout.cardviewcategoria, container, false);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProdCategoriaActivity.class);
+                intent.putExtra("idCategoria", idCategoria);
+                startActivity(intent);
+
+            }
+        });
 
 
         TextView nome = (TextView) cardView.findViewById(R.id.nomeCategoria);
