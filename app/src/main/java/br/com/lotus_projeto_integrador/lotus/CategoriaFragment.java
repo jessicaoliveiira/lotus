@@ -34,9 +34,6 @@ public class CategoriaFragment extends Fragment {
     }
 
 
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -101,7 +98,7 @@ public class CategoriaFragment extends Fragment {
                 return respostaCompleta;
 
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
 
             return null;

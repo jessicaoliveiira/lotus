@@ -36,12 +36,12 @@ public class ProdCategoriaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_prod_categoria);
 
         container = (ViewGroup) findViewById(R.id.container);
+        Intent intent  = getIntent();
+        idCategoria = intent.getIntExtra("idCategoria", 0);
 
         ConexaoWeb conexaoWeb = new ConexaoWeb();
         conexaoWeb.execute(Integer.toString(idCategoria));
 
-         Intent intent  = getIntent();
-          idCategoria = intent.getIntExtra("idCategoria", 0);
 
 
 
@@ -62,14 +62,15 @@ public class ProdCategoriaActivity extends AppCompatActivity {
         });
 
 
-        TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
-        TextView prec = (TextView) cardView.findViewById(R.id.precProduto);
-        TextView categoria = (TextView) cardView.findViewById(R.id.categoriaProduto);
+        TextView nome = (TextView) cardView.findViewById(R.id.nomeProdutoCat);
+        TextView prec = (TextView) cardView.findViewById(R.id.precProdutoCat);
+        TextView categoria = (TextView) cardView.findViewById(R.id.categoriaProdutoCat);
 
 
         nome.setText(nomeProduto);
+        categoria.setText(Integer.toString(categoriaProduto));
+        prec.setText(Double.toString(precProduto));
 
-        prec.setText((int) precProduto);
 
         container.addView(cardView);
     }
@@ -104,7 +105,7 @@ public class ProdCategoriaActivity extends AppCompatActivity {
                 return respostaCompleta;
 
             } catch (Exception e) {
-
+e.printStackTrace();
             }
 
             return null;
