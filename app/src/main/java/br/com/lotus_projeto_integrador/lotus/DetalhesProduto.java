@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -56,9 +57,6 @@ public class DetalhesProduto extends AppCompatActivity {
         TextView  = (TextView) findViewById(R.id.txtDescProduto);
         TextView.setText(""  + txtDescProduto);
 
-
-
-
         produtoView = (ImageView) findViewById(R.id.prod_img);
 
         Button comprar = (Button) findViewById(R.id.BtnComprar);
@@ -90,7 +88,7 @@ public class DetalhesProduto extends AppCompatActivity {
             try {
 
 
-                URL url = new URL("http://tsitomcat.azurewebsites.net/julietg1/rest/produtoid/" + idProduto);
+                URL url = new URL("http://tsitomcat.azurewebsites.net/lotus/rest/produto/" + idProduto);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
                 InputStream in = urlConnection.getInputStream();
@@ -130,7 +128,7 @@ public class DetalhesProduto extends AppCompatActivity {
                     String nomeProduto = jsonobject.getString("nomeProduto");
                     Double precProduto = jsonobject.getDouble("precoProduto");
                     Double descontoPromocao = jsonobject.getDouble("descontoPromocao");
-                    String DescricaoProduto = jsonobject.getString("txtDescProduto");
+                    String DescricaoProduto = jsonobject.getString("descProduto");
 
                     TextView Nome = (TextView)findViewById(R.id.txtNomeProduto);
                     Nome.setText(nomeProduto);
