@@ -1,5 +1,6 @@
 package br.com.lotus_projeto_integrador.lotus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -55,15 +56,16 @@ adicinar itens no carrinho
 
     private  void addIten(String titulo,String valor,String qtd,final int IdProduto){
 
-        final LinearLayout linha = (LinearLayout) LayoutInflater.from(getActivity()).inflate(R.layout.activity_linha_carrinho,container2,false);
-        TextView TituloView = (TextView) linha.findViewById(R.id.Nome);
-        TextView MensagemView = (TextView) linha.findViewById(R.id.Preco);
+        final LinearLayout linha = (LinearLayout) LayoutInflater.from(getActivity()).inflate(R.layout.activity_linha_carrinho, container2, false);
+
+        final TextView nomeProduto = (TextView) linha.findViewById(R.id.Nome);
+        final TextView precProduto = (TextView) linha.findViewById(R.id.Preco);
         final TextView QtdView = (TextView) linha.findViewById(R.id.Qtd);
         ImageView imageView = (ImageView) linha.findViewById(R.id.image);
 
 
-        TituloView.setText(titulo);
-        MensagemView.setText(valor);
+        nomeProduto.setText(titulo);
+        precProduto.setText(valor);
         QtdView.setText(qtd);
 
         Button exclui = (Button) linha.findViewById( R.id.RemoveItem);
@@ -81,7 +83,7 @@ adicinar itens no carrinho
             @Override
             public void onClick(View view) {
                 CarrinhoLogico carrinhoLogico = CarrinhoLogico.getInstance();
-                carrinhoLogico.RemoveProduto(IdProduto,1);
+                carrinhoLogico.RemoveProduto(IdProduto, 1);
 
                 if(Integer.parseInt((String) QtdView.getText()) > 1) {
                     QtdView.setText(String.valueOf(Integer.parseInt((String) QtdView.getText()) - 1));
@@ -102,6 +104,15 @@ adicinar itens no carrinho
 
             }
         });
+
+       // Button pagamento = (Button) linha.findViewById(R.id.BtnFinalizar);
+       // pagamento.setOnClickListener(new View.OnClickListener() {
+           // @Override
+            //public void onClick(View v) {
+               // CarrinhoLogico carrinhoLogico = CarrinhoLogico.getInstance();
+                //carrinhoLogico.AddItenPagamento(new CarrinhoProduto(IdProduto, nomeProduto, 1, precProduto));
+           // }
+       // });
 
 
         container2.addView(linha);

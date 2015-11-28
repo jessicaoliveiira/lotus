@@ -35,6 +35,16 @@ public class CarrinhoLogico {
 
     }
 
+    public void AddItenPagamento(CarrinhoProduto produto){
+        CarrinhoProduto carrinhoProduto = carrinho.get(produto.getIdProduto());
+        if (carrinhoProduto != null) {
+            carrinhoProduto.setQuantidade(carrinhoProduto.getQuantidade() + produto.getQuantidade());
+        }
+        else {
+            carrinho.put(produto.getIdProduto(), produto);
+        }
+
+    }
 
     public void RemoveProduto(int  idProduto,int qtd){
         CarrinhoProduto carrinhoProduto = carrinho.get(idProduto);

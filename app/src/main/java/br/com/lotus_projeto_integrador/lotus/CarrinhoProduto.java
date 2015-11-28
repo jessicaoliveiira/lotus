@@ -1,6 +1,9 @@
 package br.com.lotus_projeto_integrador.lotus;
 
-import android.media.Image;import java.lang.Integer;import java.lang.String;
+import android.media.Image;
+import android.widget.TextView;
+
+import java.lang.Integer;import java.lang.String;
 /**
  * Created by rony.rbarboza on 12/11/2015.
  */
@@ -35,7 +38,7 @@ public class CarrinhoProduto {
         this.valor = valor;
     }
 
-    public CarrinhoProduto(int idProduto,String Nome,int quantidade,double valor) {
+    public CarrinhoProduto(int idProduto,String Nome,int quantidade, Double valor) {
         this.Nome = Nome;
         this.IdProduto = idProduto;
         this.quantidade = quantidade;

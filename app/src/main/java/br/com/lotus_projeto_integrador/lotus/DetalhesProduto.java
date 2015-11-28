@@ -42,30 +42,29 @@ public class DetalhesProduto extends AppCompatActivity {
         conexaoWeb.execute(idProduto);
 
         Intent intent1 = getIntent();
-        final int idProduto = intent.getIntExtra("idProduto", 0);
+        final int idProduto = intent1.getIntExtra("idProduto", 0);
 
-
-        final String txtNomeProduto = intent.getStringExtra("nomeProduto");
+        final String nomeProduto = intent1.getStringExtra("nomeProduto");
         TextView TextView= (TextView) findViewById(R.id.txtNomeProduto);
-        TextView.setText("" + txtNomeProduto);
+        TextView.setText("" + nomeProduto);
 
-        String txtCategProduto = intent.getStringExtra("nomeCategoria");
+        String txtCategProduto = intent1.getStringExtra("nomeCategoria");
         TextView  = (TextView) findViewById(R.id.txtCategProduto);
         TextView.setText(""  + txtCategProduto);
 
-        final double precProduto = intent.getDoubleExtra("precProduto",0);
+        final double precProduto = intent1.getDoubleExtra("precProduto",0);
         TextView  = (TextView) findViewById(R.id.txtValorPrecoDe);
         TextView.setText("" + precProduto);
 
 
         produtoView = (ImageView) findViewById(R.id.prod_img);
 
-        Button button = (Button) findViewById(R.id.BtnComprar);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button comprar = (Button) findViewById(R.id.BtnComprar);
+        comprar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CarrinhoLogico carrinhoLogico = CarrinhoLogico.getInstance();
-                carrinhoLogico.AddItenCarrinho(new CarrinhoProduto(idProduto, txtNomeProduto,1,precProduto));
+                carrinhoLogico.AddItenCarrinho(new CarrinhoProduto(idProduto, nomeProduto,1,precProduto));
 
                 Intent intent = new Intent(DetalhesProduto.this, CarrinhoActivity.class);
                 startActivity(intent);

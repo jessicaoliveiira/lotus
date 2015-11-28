@@ -3,6 +3,7 @@ package br.com.lotus_projeto_integrador.lotus;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -25,8 +26,26 @@ public class PagamentoActivity extends AppCompatActivity {
 
         //spn1 = (Spinner) findViewById(R.id.spinner);
 
-       // ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, cartao);
-       //spn1.setAdapter(arrayAdapter);
+        // ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, cartao);
+        //spn1.setAdapter(arrayAdapter);
+
+        CarrinhoLogico carrinhoLogico = CarrinhoLogico.getInstance();
+
+
+        double precofinal = 0;
+        for(CarrinhoProduto iten : carrinhoLogico.getItens().values()){
+
+            double id = iten.getIdProduto();
+            int qtd = iten.getQuantidade();
+            precofinal = precofinal + (qtd * iten.getValor());
+
+            Log.v("produto",id + ":"  + qtd);
+
+        }
+
+        Log.v("preco final", String.valueOf(precofinal));
+
+
     }
 
 
