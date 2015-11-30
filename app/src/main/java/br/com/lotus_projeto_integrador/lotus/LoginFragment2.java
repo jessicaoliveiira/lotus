@@ -45,8 +45,6 @@ public class LoginFragment2 extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_login_fragment2, container, false);
         super.onCreate(savedInstanceState);
 
-        final ConexaoWeb conexaoWeb = new ConexaoWeb();
-        conexaoWeb.execute();
 
         editUsuario = (EditText) view.findViewById(R.id.editUsuario);
 
@@ -54,12 +52,34 @@ public class LoginFragment2 extends Fragment {
 
         btnValidar = (Button) view.findViewById(R.id.btnValidar);
 
+        final SharedPreferences prefis = this.getActivity().getSharedPreferences("users", Context.MODE_PRIVATE);
 
         btnValidar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), PagamentoActivity.class);
-                startActivity(intent);
+                String busca = prefis.getString("users", "");
+                if (busca.equals(btnValidar.getText().toString())) {
+
+                    dadosUsuario DadosUsuario = dadosUsuario.getInstance();
+
+
+                    String login = DadosUsuario.getNomeUsuario();
+                    String senha = DadosUsuario.getSenhaUsuario();
+
+                    Intent intent = new Intent(getActivity(), Carrinho.class);
+
+                    startActivity(intent);
+
+                }
+                else {
+
+                    SharedPreferences.Editor editor = prefis.edit();
+                    editor.putString("users", btnValidar.getText().toString());
+                    editor.apply();
+
+                    ConexaoWeb conexaoWeb = new ConexaoWeb();
+                    conexaoWeb.execute(btnValidar.getText().toString());
+                }
 
             }
         });
@@ -108,10 +128,15 @@ public class LoginFragment2 extends Fragment {
                 for (int i = 0; i < json.length(); i++) {
                     JSONObject jsonobject = json.getJSONObject(i);
                     //JSONObject json = new JSONObject(s);
+                    String login = json.getString(Integer.parseInt("loginUsuario"));
+                    String senha = json.getString(Integer.parseInt("senhaUsuario"));
 
-                    String editUsuario = jsonobject.getString("nomeUsuario");
-                    String editSenha = jsonobject.getString("senhaUsuario");
+                    dadosUsuario Dadosusuario = dadosUsuario.getInstance();
+                    Dadosusuario.setLoginUsuario(login);
+                    Dadosusuario.setSenhaUsuario(senha);
 
+                    Intent intent = new Intent(getActivity(), Carrinho.class);
+                    startActivity(intent);
                 }
 
             } catch (Exception e) {

@@ -6,7 +6,7 @@ package br.com.lotus_projeto_integrador.lotus;
 public class dadosUsuario {
     private static dadosUsuario ourInstance = new dadosUsuario();
 
-    private String nomeUsuario;
+    private String loginUsuario;
     private String senhaUsuario;
 
     public static dadosUsuario getInstance() {
@@ -15,8 +15,8 @@ public class dadosUsuario {
 
     private dadosUsuario() {
     }
-    public void setNomeUsuario(String nomeUsuario) {
-        nomeUsuario = nomeUsuario;
+    public void setLoginUsuario(String loginUsuario) {
+        loginUsuario = loginUsuario;
     }
 
     public void setSenhaUsuario(String nomeUsuario) {
@@ -24,7 +24,7 @@ public class dadosUsuario {
     }
 
     public String getNomeUsuario() {
-        return nomeUsuario;
+        return loginUsuario;
     }
 
     public String getSenhaUsuario() {
