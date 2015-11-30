@@ -48,7 +48,7 @@ public class ProdutoFragment extends Fragment {
         return view;
     }
 
-    private void addItem(final int id, final String nomeProduto, final double precProduto, final String descProduto, double descontoPromocao, int categoriaProduto, Bitmap imagem) {
+    private void addItem(final int id, final String nomeProduto, final double precoProduto, final String descProduto, final double descontoPromocao, final String imagem) {
         CardView cardView = (CardView) LayoutInflater.from(getActivity()).inflate(R.layout.cardviewproduto, container, false);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +56,13 @@ public class ProdutoFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), DetalhesProduto.class);
                 intent.putExtra("idProduto", id);
                 intent.putExtra("nomeProduto", nomeProduto);
-                intent.putExtra("precProduto", precProduto);
+                intent.putExtra("precoProduto", precoProduto);
+                intent.putExtra("descProduto", descProduto);
+                intent.putExtra("descontoPromocao", descontoPromocao);
+                intent.putExtra("imagem", imagem);
+
+
+
                 startActivity(intent);
             }
         });
@@ -64,14 +70,17 @@ public class ProdutoFragment extends Fragment {
 
 
         TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
-        TextView categoria = (TextView) cardView.findViewById(R.id.categoriaProduto);
+
         TextView prec = (TextView) cardView.findViewById(R.id.precProduto);
         ImageView prod_img = (ImageView) cardView.findViewById(R.id.imgProduto);
 
         nome.setText(nomeProduto);
-        categoria.setText(Integer.toString(categoriaProduto));
-        prec.setText(Double.toString(precProduto));
-        prod_img.setImageBitmap(imagem);
+
+        prec.setText(Double.toString(precoProduto));
+
+        byte [] encodeByte = Base64.decode(imagem, Base64.DEFAULT);
+        Bitmap bmp = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+        prod_img.setImageBitmap(bmp);
 
         container.addView(cardView);
 
@@ -121,17 +130,16 @@ public class ProdutoFragment extends Fragment {
 
                     int idProduto = jsonobject.getInt("idProduto");
                     String nomeProduto = jsonobject.getString("nomeProduto");
-                    Double precProduto = jsonobject.getDouble("precoProduto");
+                    Double precoProduto = jsonobject.getDouble("precoProduto");
                     Double descontoPromocao = jsonobject.getDouble("descontoPromocao");
                     String descProduto = jsonobject.getString("descProduto");
                     //int categoriaProduto = jsonobject.getInt("categoriaProduto");
 
                     String imagem = jsonobject.getString("imagemProduto");
 
-                    byte [] encodeByte = Base64.decode(imagem, Base64.DEFAULT);
-                    Bitmap bmp = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
 
-                    addItem(idProduto, nomeProduto, precProduto, "", descontoPromocao, 1, bmp);
+
+                    addItem(idProduto, nomeProduto, precoProduto, descProduto, descontoPromocao,  imagem);
 
 
                 }
