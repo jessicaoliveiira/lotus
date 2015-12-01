@@ -28,8 +28,8 @@
 
     <string name="Login">Login</string>
     <string name="Camera">Câmera</string>
-    <string name="title_activity_endereco">EnderecoActivity</string>
-    <string name="title_activity_pagamento">PagamentoActivity</string>
+    <string name="title_activity_endereco">Endereço</string>
+    <string name="title_activity_pagamento">Finalizar compra</string>
     <string name="title_activity_prod_categoria">ProdCategoriaActivity</string>
 
 
@@ -47,8 +47,9 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_temos">Lotus</string>
     <string name="title_activity_resultado_qr">Resultado QR Code</string>
-    <string name="title_activity_detalhes">DetalhesActivity</string>
+    <string name="title_activity_detalhes">Detalhes do produto</string>
     <string name="title_activity_carrinho">Carrinho</string>
+    <string name="title_activity_erro">Erro na aplicação</string>
 
 
 </resources>

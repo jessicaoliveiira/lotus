@@ -37,6 +37,8 @@ public class LoginFragment2 extends Fragment {
     private EditText editUsuario;
     private EditText editSenha;
     private Button btnValidar;
+    private String loginDigitado, senhaDigitada, emailCliente;
+
 
 
     @Override
@@ -45,6 +47,11 @@ public class LoginFragment2 extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_login_fragment2, container, false);
         super.onCreate(savedInstanceState);
 
+        dadosUsuario informacoes = dadosUsuario.getInstance();
+        informacoes.setLoginUsuario(loginDigitado);
+        informacoes.setSenhaUsuario(senhaDigitada);
+
+        SharedPreferences preferences = this.getActivity().getSharedPreferences("informacoes", Context.MODE_PRIVATE);
 
         editUsuario = (EditText) view.findViewById(R.id.editUsuario);
 
@@ -52,71 +59,47 @@ public class LoginFragment2 extends Fragment {
 
         btnValidar = (Button) view.findViewById(R.id.btnValidar);
 
-        final SharedPreferences prefis = this.getActivity().getSharedPreferences("users", Context.MODE_PRIVATE);
-
         btnValidar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String busca = prefis.getString("users", "");
-                if (busca.equals(btnValidar.getText().toString())) {
+                loginDigitado = editUsuario.getText().toString();
+                senhaDigitada = editSenha.getText().toString();
+                if ((loginDigitado.isEmpty()) || (senhaDigitada.isEmpty())) {
 
-                    dadosUsuario DadosUsuario = dadosUsuario.getInstance();
-
-
-                    String login = DadosUsuario.getNomeUsuario();
-                    String senha = DadosUsuario.getSenhaUsuario();
-
-                    Intent intent = new Intent(getActivity(), Carrinho.class);
-
-                    startActivity(intent);
-
+                } else {
+                    WsLogin wsLogin = new WsLogin();
+                    wsLogin.execute(loginDigitado, senhaDigitada);
                 }
-                else {
-
-                    SharedPreferences.Editor editor = prefis.edit();
-                    editor.putString("users", btnValidar.getText().toString());
-                    editor.apply();
-
-                    ConexaoWeb conexaoWeb = new ConexaoWeb();
-                    conexaoWeb.execute(btnValidar.getText().toString());
-                }
-
             }
         });
+
         return view;
 
     }
 
-
-    public class ConexaoWeb extends AsyncTask<String, Void, String> {
+    public class WsLogin extends AsyncTask<String, Void, String> {
         @Override
-        protected String doInBackground(String... params) {
-            try {
+        protected String doInBackground(String... strings) {
+            try{
+                URL url = new URL("http://tsitomcat.azurewebsites.net/lotus/rest/login/" + loginDigitado + "/" + senhaDigitada);
 
-                URL url = new URL("http://tsitomcat.azurewebsites.net/lotus/rest/login/");
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
                 InputStream in = urlConnection.getInputStream();
-
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
 
                 StringBuilder responseStrBuilder = new StringBuilder();
                 String inputStr;
 
-                //Lê linha a linha a resposta e armazena no StringBuilder
-                while ((inputStr = reader.readLine()) != null) responseStrBuilder.append(inputStr);
+                while ((inputStr = reader.readLine()) != null)
+                    responseStrBuilder.append(inputStr);
 
                 String respostaCompleta = responseStrBuilder.toString();
-
-                Log.v("Json", respostaCompleta);
-
-                return respostaCompleta;
-
-            } catch (Exception e) {
+                return  respostaCompleta;
+            } catch (Exception e){
 
             }
-
             return null;
         }
 
@@ -124,23 +107,18 @@ public class LoginFragment2 extends Fragment {
         @Override
         protected void onPostExecute(String s) {
             try {
-                JSONArray json = new JSONArray(s);
-                for (int i = 0; i < json.length(); i++) {
-                    JSONObject jsonobject = json.getJSONObject(i);
-                    //JSONObject json = new JSONObject(s);
-                    String login = json.getString(Integer.parseInt("loginUsuario"));
-                    String senha = json.getString(Integer.parseInt("senhaUsuario"));
+                JSONObject jsonObject = new JSONObject(s);
 
-                    dadosUsuario Dadosusuario = dadosUsuario.getInstance();
-                    Dadosusuario.setLoginUsuario(login);
-                    Dadosusuario.setSenhaUsuario(senha);
+                emailCliente = jsonObject.getString("emailCliente");
 
-                    Intent intent = new Intent(getActivity(), Carrinho.class);
+                if (loginDigitado.equals(emailCliente)) {
+                    Intent intent = new Intent(getActivity(), PagamentoActivity.class);
                     startActivity(intent);
-                }
 
-            } catch (Exception e) {
-                e.printStackTrace();
+                }
+            }catch (Exception e){
+                Intent erro = new Intent(getActivity(), erroActivity.class);
+                startActivity(erro);
             }
         }
     }
