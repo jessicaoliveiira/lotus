@@ -6,12 +6,15 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -23,41 +26,108 @@ import java.net.URL;
 
 public class EnderecoActivity extends AppCompatActivity {
 
+    String strNomeEndereco;
+    String strLogradouro;
+    String strNumeroEnd;
+    String strComplemento;
+    String strCep;
+    String strCidade;
+    String strUf;
+    String strPais;
+
+    public View view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_endereco);
 
-
-        final EditText campo_endereço = (EditText)findViewById(R.id.CampoEndereco);
-        final EditText campo_logradouro = (EditText)findViewById(R.id.CampoLogradouro);
-        final EditText campo_numero = (EditText)findViewById(R.id.CampoNumero);
-        final EditText campo_CEP = (EditText)findViewById(R.id.CampoCEP);
-        final EditText campo_cidade = (EditText)findViewById(R.id.CampoCidade);
+        final EditText NomeEndereco = (EditText) findViewById(R.id.nomeEndereco);
+        final EditText Logradouro = (EditText) findViewById(R.id.logradouro);
+        final EditText NumeroEnd = (EditText) findViewById(R.id.numeroEnd);
+        final EditText Complemento = (EditText)findViewById(R.id.complemento);
+        final EditText CepEndereco = (EditText) findViewById(R.id.cepEndereco);
+        final EditText Cidade = (EditText) findViewById(R.id.cidade);
+        final EditText UFendereco = (EditText) findViewById(R.id.uf);
+        final EditText Pais = (EditText) findViewById(R.id.pais);
 
         Button BtnSalvarEnd = (Button) findViewById(R.id.BtnSalvarEnd);
         BtnSalvarEnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                    validator.validateNotNull(campo_endereço, "Preencha o campo endereço");
-                    validator.validateNotNull(campo_logradouro, "Preencha o campo logradouro");
-                    validator.validateNotNull(campo_numero, "Preencha o campo número");
-                    validator.validateNotNull(campo_CEP, "Preencha o campo CEP");
-                    validator.validateNotNull(campo_cidade, "Preencha o campo Cidade");
+                strNomeEndereco = NomeEndereco.getText().toString();
+                strLogradouro = Logradouro.getText().toString();
+                strNumeroEnd = NumeroEnd.getText().toString();
+                strComplemento = Complemento.getText().toString();
+                strCep = CepEndereco.getText().toString();
+                strCidade = Cidade.getText().toString();
+                strUf = UFendereco.getText().toString();
+                strPais = Pais.getText().toString();
 
+                if (strNomeEndereco.isEmpty() || strNomeEndereco.equals("") || strNomeEndereco.equals(" ")) {
+                    strNomeEndereco = null;
                 }
 
+                if (strLogradouro.isEmpty() || strLogradouro.equals("") || strLogradouro.equals(" ")) {
+                    strLogradouro = null;
+                }
 
+                if (strNumeroEnd.isEmpty() || strNumeroEnd.equals("") || strNumeroEnd.equals(" ")) {
+                    strNumeroEnd = null;
+                }
+
+                if (strComplemento.isEmpty() || strComplemento.equals("") || strComplemento.equals(" ")) {
+                    strComplemento = null;
+                }
+
+                if (strCep.isEmpty() || strCep.equals("") || strCep.equals(" ")) {
+                    strCep = null;
+                }
+
+                if (strCidade.isEmpty() || strCidade.equals("") || strCidade.equals(" ")) {
+                    strCidade = null;
+                }
+
+                if (strUf.isEmpty() || strUf.equals("") || strUf.equals(" ")) {
+                    strUf = null;
+                }
+
+                if (strPais.isEmpty() || strPais.equals("") || strPais.equals(" ")) {
+                    strPais = null;
+                }
+
+                if (NomeEndereco.getText().length() == 0 || Logradouro.getText().length() <= 3 ||
+                        NumeroEnd.getText().length() <= 1 || CepEndereco.getText().length() <= 8 ||
+                        Cidade.getText().length() <= 3 || UFendereco.getText().length() <= 2 ||
+                        Pais.getText().length() <= 3) {
+                    validator.validateNotNull(NomeEndereco, "Preencha o campo endereço");
+                    validator.validateNotNull(Logradouro, "Preencha o campo logradouro");
+                    validator.validateNotNull(NumeroEnd, "Preencha o campo número");
+                    validator.validateNotNull(CepEndereco, "Preencha o campo CEP");
+                    validator.validateNotNull(Cidade, "Preencha o campo Cidade");
+                    validator.validateNotNull(UFendereco, "Preencha o campo UF");
+                    validator.validateNotNull(Pais, "Preencha o campo País");
+
+                } else {
+
+                    ConexaoWeb conexaoWeb = new ConexaoWeb();
+                    conexaoWeb.execute(strNomeEndereco, strLogradouro, strNumeroEnd, strComplemento, strCep, strCidade, strUf, strPais);
+
+                    Intent intent = new Intent(EnderecoActivity.this, ProdCategoriaActivity.class);
+                    startActivity(intent);
+
+                }
+            }
         });
 
 
-       final Button BtnCancelarEnd = (Button) findViewById(R.id.BtnCancelarEnd);
+        final Button BtnCancelarEnd = (Button) findViewById(R.id.BtnCancelarEnd);
 
         BtnCancelarEnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               finish();
+                finish();
             }
         });
     }
@@ -84,67 +154,91 @@ public class EnderecoActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     public class ConexaoWeb extends AsyncTask<String, Void, String> {
         @Override
-        protected String doInBackground(String... params) {
+        protected String doInBackground(String... strings) {
             try {
-                URL url = new URL("http://tsitomcat.azurewebsites.net/julietg1/rest/produtoid/2");
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+                String url = "http://tsitomcat.azurewebsites.net/lotus/rest/cliente/" + "18" + "/" + strNomeEndereco + "/" + strLogradouro + "/" + strNumeroEnd + "/" + strCep + "/" + strComplemento+ "/" + strCidade + "/" + strPais + "/" + strUf;
+                url = url.replaceAll(" ", "%20");
+
+                Log.v("url", url);
+
+                URL weburl = new URL(url);
+                HttpURLConnection urlConnection = (HttpURLConnection) weburl.openConnection();
 
                 InputStream in = urlConnection.getInputStream();
 
-                //Cria um leitor para ler a resposta
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
 
                 StringBuilder responseStrBuilder = new StringBuilder();
                 String inputStr;
 
                 //Lê linha a linha a resposta e armazena no StringBuilder
-                while ((inputStr = reader.readLine()) != null)
-                    responseStrBuilder.append(inputStr);
+                while ((inputStr = reader.readLine()) != null) responseStrBuilder.append(inputStr);
 
-                //Transforma o StringBuilder em String, que contém a resposta final
                 String respostaCompleta = responseStrBuilder.toString();
+
+                Log.v("Json", respostaCompleta);
 
                 return respostaCompleta;
 
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
+
             return null;
         }
+
         @Override
         protected void onPostExecute(String s) {
             try {
-                JSONObject json = new JSONObject(s);
-                String CampoEndereco = json.getString("CampoEndereco");
-                String CampoLogradouro = json.getString("CampoLogradouro");
-                String CampoNumero = json.getString("CampoNumero");
-                String CampoCompl = json.getString("CampoCompl");
-                String CampoCEP = json.getString("CampoCEP");
-                String CampoCidade = json.getString("CampoCidade");
-                String CampoPais = json.getString("CampoPais");
+                JSONArray json = new JSONArray(s);
+                for (int i = 0; i < json.length(); i++) {
+                    JSONObject jsonobject = json.getJSONObject(i);
+                    //JSONObject json = new JSONObject(s);
+
+                    String nomeEndereco = jsonobject.getString("nomeEndereco");
+                    String logradouroEndereco = jsonobject.getString("logradouro");
+                    String numeroEndereco = jsonobject.getString("numeroEnd");
+                    String complementoEndereco = jsonobject.getString("complemento");
+                    String cepEndereco = jsonobject.getString("cepEndereco");
+                    String cidadeEndereco = jsonobject.getString("cidade");
+                    String ufEndereco = jsonobject.getString("uf");
+                    String paisEndereco = jsonobject.getString("pais");
 
 
+                    TextView txtNomeEndereco = (TextView) view.findViewById(R.id.nomeEndereco);
+                    txtNomeEndereco.setText(nomeEndereco);
 
-                Intent intent = new Intent(EnderecoActivity.this, LotusActivity.class);
+                    TextView txtLogradouro = (TextView) view.findViewById(R.id.logradouro);
+                    txtLogradouro.setText(logradouroEndereco);
 
-                intent.putExtra("CampoEndereco", CampoEndereco);
-                intent.putExtra("CampoLogradouro", CampoLogradouro);
-                intent.putExtra("CampoNumero", CampoNumero);
-                intent.putExtra("CampoCompl", CampoCompl);
-                intent.putExtra("CampoCEP", CampoCEP);
-                intent.putExtra("CampoCidade", CampoCidade);
-                intent.putExtra("CampoPais", CampoPais);
+                    TextView txtNumEndereco = (TextView) view.findViewById(R.id.numeroEnd);
+                    txtNumEndereco.setText(numeroEndereco);
 
+                    TextView txtComplementoEnd = (TextView) view.findViewById(R.id.complemento);
+                    txtComplementoEnd.setText(complementoEndereco);
 
-                startActivity(intent);
+                    TextView txtCepEnd = (TextView) view.findViewById(R.id.cepEndereco);
+                    txtCepEnd.setText(cepEndereco);
 
+                    TextView txtCidadeEnd = (TextView) view.findViewById(R.id.cidade);
+                    txtCidadeEnd.setText(cidadeEndereco);
 
+                    TextView txtUfEnd = (TextView) view.findViewById(R.id.uf);
+                    txtUfEnd.setText(ufEndereco);
+
+                    TextView txtPais = (TextView) view.findViewById(R.id.pais);
+                    txtPais.setText(paisEndereco);
+
+                }
 
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
         }
+
     }
 }

@@ -24,75 +24,110 @@ import java.net.URL;
 
 public class CadastroFragment extends Fragment {
 
-  /*  public EditText campo_nome;
+    public EditText campo_nome;
     public EditText campo_email;
     public EditText campo_senha;
     public EditText campo_cpf;
     public EditText campo_celular;
     public EditText campo_telefone_comercial;
     public EditText campo_telefone_residencial;
-    public EditText campo_data_nascimento;*/
+    public EditText campo_data_nascimento;
 
-    public String nomeCliente;
-    public String emailCliente;
-    public String senhaCliente;
-    public String cpfCliente;
-    public String dtNasc;
-    public String celCliente;
-    public String telRes;
-    public String telCom;
+    public String strNomeCliente;
+    public String strEmailCliente;
+    public String strSenhaCliente;
+    public String strCpfCliente;
+    public String strDtNasc;
+    public String strCelCliente;
+    public String strTelRes;
+    public String strTelCom;
+
+    public Button BtnSalvar;
 
     public View view;
 
     public CadastroFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
-
-        //Pass your layout xml to the inflater and assign it to rootView.
         view = inflater.inflate(R.layout.fragment_cadastro, container, false);
 
-        final EditText campo_nome = (EditText) view.findViewById(R.id.nomeCliente);
+        campo_nome = (EditText) view.findViewById(R.id.nomeCliente);
 
-        final EditText campo_email = (EditText) view.findViewById(R.id.emailCliente);
+        campo_email = (EditText) view.findViewById(R.id.emailCliente);
 
-        final EditText campo_senha = (EditText) view.findViewById(R.id.senhaCliente);
+        campo_senha = (EditText) view.findViewById(R.id.senhaCliente);
 
-        final EditText campo_cpf = (EditText) view.findViewById(R.id.cpfCliente);
-        campo_cpf.addTextChangedListener(Mask.insert("###.###.###-##", campo_cpf));
+        campo_cpf = (EditText) view.findViewById(R.id.cpfCliente);
+      //  campo_cpf.addTextChangedListener(Mask.insert("###.###.###-##", campo_cpf));
 
-        final EditText campo_celular = (EditText) view.findViewById(R.id.celCliente);
-        campo_celular.addTextChangedListener(Mask.insert("(##)####-#####", campo_celular));
+        campo_celular = (EditText) view.findViewById(R.id.celCliente);
+      //  campo_celular.addTextChangedListener(Mask.insert("(##)####-#####", campo_celular));
 
-        final EditText campo_telefone_residencial = (EditText) view.findViewById(R.id.telRelCliente);
-        campo_telefone_residencial.addTextChangedListener(Mask.insert("(##)####-####", campo_telefone_residencial));
+        campo_telefone_residencial = (EditText) view.findViewById(R.id.telRelCliente);
+      //  campo_telefone_residencial.addTextChangedListener(Mask.insert("(##)####-####", campo_telefone_residencial));
 
-        final EditText campo_telefone_comercial = (EditText) view.findViewById(R.id.telComCliente);
-        campo_telefone_comercial.addTextChangedListener(Mask.insert("(##)####-####", campo_telefone_comercial));
+        campo_telefone_comercial = (EditText) view.findViewById(R.id.telComCliente);
+      //  campo_telefone_comercial.addTextChangedListener(Mask.insert("(##)####-####", campo_telefone_comercial));
 
-        final EditText campo_data_nascimento = (EditText) view.findViewById(R.id.dtNascCliente);
-        campo_data_nascimento.addTextChangedListener(Mask.insert("##/##/####", campo_data_nascimento));
-
-        nomeCliente = campo_nome.getText().toString();
-        emailCliente = campo_email.getText().toString();
-        senhaCliente = campo_senha.getText().toString();
-        cpfCliente = campo_cpf.getText().toString();
-        dtNasc = campo_data_nascimento.getText().toString();
-        celCliente = campo_celular.getText().toString();
-        telRes = campo_telefone_residencial.getText().toString();
-        telCom = campo_telefone_comercial.getText().toString();
+        campo_data_nascimento = (EditText) view.findViewById(R.id.dtNascCliente);
+       // campo_data_nascimento.addTextChangedListener(Mask.insert("##/##/####", campo_data_nascimento));
 
 
-        final Button BtnSalvar = (Button) view.findViewById(R.id.BtnSalvar);
+
+        BtnSalvar = (Button) view.findViewById(R.id.BtnSalvar);
         BtnSalvar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+
+                strNomeCliente = campo_nome.getText().toString();
+                strEmailCliente = campo_email.getText().toString();
+                strSenhaCliente = campo_senha.getText().toString();
+                strCpfCliente = campo_cpf.getText().toString();
+                strDtNasc = campo_data_nascimento.getText().toString();
+                strCelCliente = campo_celular.getText().toString();
+                strTelRes = campo_telefone_residencial.getText().toString();
+                strTelCom = campo_telefone_comercial.getText().toString();
+
+
+                if(strNomeCliente.isEmpty() || strNomeCliente.equals("") || strNomeCliente.equals(" ")){
+                    strNomeCliente = null;
+                }
+
+                if(strEmailCliente.isEmpty() || strEmailCliente.equals("") || strEmailCliente.equals(" ")){
+                    strEmailCliente = null;
+                }
+
+                if(strSenhaCliente.isEmpty() || strSenhaCliente.equals("") || strSenhaCliente.equals(" ")){
+                    strSenhaCliente = null;
+                }
+
+                if(strCpfCliente.isEmpty() || strCpfCliente.equals("") || strCpfCliente.equals(" ")){
+                    strCpfCliente = null;
+                }
+
+                if(strDtNasc.isEmpty() || strDtNasc.equals("") || strDtNasc.equals(" ")){
+                    strDtNasc = null;
+                }
+
+                if(strCelCliente.isEmpty() || strCelCliente.equals("") || strCelCliente.equals(" ")){
+                    strCelCliente = null;
+                }
+
+                if(strTelRes.isEmpty() || strTelRes.equals("") || strTelRes.equals(" ")){
+                    strTelRes = null;
+                }
+
+                if(strTelCom.isEmpty() || strTelCom.equals("") || strTelCom.equals(" ")){
+                    strTelCom = null;
+                }
+
+
                 if (campo_nome.getText().length() == 0 || campo_senha.getText().length() <= 3) {
                     validator.validateNotNull(campo_nome, "Preencha o campo nome");
                     validator.validateNotNull(campo_cpf, "Preencha o campo CPF");
@@ -112,12 +147,13 @@ public class CadastroFragment extends Fragment {
                     }
 
                 } else {
+
+                    ConexaoWeb conexaoWeb = new ConexaoWeb();
+                    conexaoWeb.execute(strNomeCliente, strEmailCliente, strSenhaCliente, strCpfCliente, strCelCliente, strTelCom, strTelRes);
+
                     Intent intent = new Intent(getActivity(), EnderecoActivity.class);
                     startActivity(intent);
                 }
-
-                ConexaoWeb conexaoCep = new ConexaoWeb();
-                conexaoCep.execute();
 
             }
         });
@@ -137,12 +173,16 @@ public class CadastroFragment extends Fragment {
 
     public class ConexaoWeb extends AsyncTask<String, Void, String> {
         @Override
-        protected String doInBackground(String... params) {
+        protected String doInBackground(String... strings) {
             try {
-Log.v("url","http://tsitomcat.azurewebsites.net/lotus/rest/cadastro/" +nomeCliente+ "/" +emailCliente+ "/" +senhaCliente+ "/" +cpfCliente+ "/" +celCliente+ "/" +telCom+ "/" +telRes+ "/" +dtNasc+ "/1");
 
-                URL url = new URL("http://tsitomcat.azurewebsites.net/lotus/rest/cadastro/" +nomeCliente+ "/" +emailCliente+ "/" +senhaCliente+ "/" +cpfCliente+ "/" +celCliente+ "/" +telCom+ "/" +telRes+ "/" +dtNasc+ "/1");
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                String url = "http://tsitomcat.azurewebsites.net/lotus/rest/cliente/" + strNomeCliente + "/" + strEmailCliente + "/" + strSenhaCliente + "/" + strCpfCliente + "/" + strCelCliente + "/" + strTelCom + "/" + strTelRes + "/1993-10-01/1";
+                url = url.replaceAll(" ", "%20");
+
+                Log.v("url", url);
+
+                URL weburl = new URL(url);
+                HttpURLConnection urlConnection = (HttpURLConnection) weburl.openConnection();
 
                 InputStream in = urlConnection.getInputStream();
 
@@ -161,7 +201,7 @@ Log.v("url","http://tsitomcat.azurewebsites.net/lotus/rest/cadastro/" +nomeClien
                 return respostaCompleta;
 
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
 
             return null;
@@ -175,14 +215,14 @@ Log.v("url","http://tsitomcat.azurewebsites.net/lotus/rest/cadastro/" +nomeClien
                     JSONObject jsonobject = json.getJSONObject(i);
                     //JSONObject json = new JSONObject(s);
 
-                    String nomeCompletoCliente = jsonobject.getString("nomeCompletoCliente");
+                    String nomeCompletoCliente = jsonobject.getString("nomeCliente");
                     String emailCliente = jsonobject.getString("emailCliente");
                     String senhaCliente = jsonobject.getString("senhaCliente");
-                    String CPFCliente = jsonobject.getString("CPFCliente");
-                    String celularCliente = jsonobject.getString("celularCliente");
-                    String telComercialCliente = jsonobject.getString("telComercialCliente");
-                    String telResidencialCliente = jsonobject.getString("telResidencialCliente");
-                    String dtNascCliente = jsonobject.getString("dtNascCliente");
+                    String CPFCliente = jsonobject.getString("cpfCliente");
+                    String celularCliente = jsonobject.getString("celCliente");
+                    String telComercialCliente = jsonobject.getString("telRelCliente");
+                    String telResidencialCliente = jsonobject.getString("telComCliente");
+                   // String dtNascCliente = jsonobject.getString("dtNascCliente");
 
 
                     TextView NomeCompletoCliente = (TextView) view.findViewById(R.id.nomeCliente);
@@ -206,8 +246,8 @@ Log.v("url","http://tsitomcat.azurewebsites.net/lotus/rest/cadastro/" +nomeClien
                     TextView TelComercialCliente = (TextView) view.findViewById(R.id.telComCliente);
                     TelComercialCliente.setText(telComercialCliente);
 
-                    TextView DtNascCliente = (TextView) view.findViewById(R.id.dtNascCliente);
-                    DtNascCliente.setText(dtNascCliente);
+                  /*  TextView DtNascCliente = (TextView) view.findViewById(R.id.dtNascCliente);
+                    DtNascCliente.setText(dtNascCliente);*/
 
                 }
 

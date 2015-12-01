@@ -1,127 +1,147 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="br.com.lotus_projeto_integrador.lotus.EnderecoActivity"
-    android:id="@+id/action_endereco"
-    android:orientation="vertical">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
 
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/action_endereco"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:id="@+id/linearLayout">
+        tools:context="br.com.lotus_projeto_integrador.lotus.EnderecoActivity">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Cadastrar Endereço"
-            android:id="@+id/Cadastrar"
-            android:textColor="#009688"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_gravity="center"
-            android:paddingTop="10dp"/>
+            android:orientation="vertical">
 
-        <EditText
-            android:layout_width="300dp"
+            <TextView
+                android:id="@+id/Cadastrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:paddingTop="10dp"
+                android:text="Cadastrar Endereço"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#009688"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/nomeEndereco"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:hint="Endereço"
+                android:paddingTop="50dp"
+                android:textColorHint="#26a69a"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/logradouro"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:hint="Logradouro"
+                android:paddingTop="15dp"
+                android:textColorHint="#26a69a"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/numeroEnd"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:ems="10"
+                android:hint="Número"
+                android:inputType="number"
+                android:paddingTop="15dp"
+                android:textColorHint="#26a69a"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/complemento"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:hint="Complemento"
+                android:paddingTop="15dp"
+                android:textColorHint="#26a69a"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/cepEndereco"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:ems="10"
+                android:hint="CEP"
+                android:inputType="number"
+                android:paddingTop="15dp"
+                android:textColorHint="#26a69a"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/cidade"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:hint="Cidade"
+                android:paddingTop="15dp"
+                android:textColorHint="#26a69a"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/uf"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:hint="UF"
+                android:paddingTop="15dp"
+                android:textColorHint="#26a69a"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/pais"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="15dp"
+                android:hint="País"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:textColorHint="#26a69a"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/CampoEndereco"
-            android:hint="Endereço"
-            android:paddingTop="50dp"
-            android:layout_marginLeft="15dp"
-            android:textSize="15sp"
-            android:textColorHint="#26a69a"/>
+            android:orientation="horizontal">
 
-        <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/CampoLogradouro"
-        android:hint="Logradouro"
-        android:paddingTop="15dp"
-        android:layout_marginLeft="15dp"
-        android:textSize="15sp"
-        android:textColorHint="#26a69a"/>
+            <Button
+                android:id="@+id/BtnSalvarEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="100dp"
+                android:backgroundTint="#009688"
+                android:singleLine="false"
+                android:text="Salvar"
+                android:textColor="#FFF" />
 
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/CampoNumero"
-            android:hint="Número"
-            android:paddingTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:textSize="15sp"
-            android:textColorHint="#26a69a"/>
+            <Button
+                android:id="@+id/BtnCancelarEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#009688"
+                android:text="Cancelar"
+                android:textColor="#FFF" />
 
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/CampoCompl"
-            android:hint="Complemento"
-            android:paddingTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:textSize="15sp"
-            android:textColorHint="#26a69a"/>
-
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/CampoCEP"
-            android:hint="CEP"
-            android:paddingTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:textSize="15sp"
-            android:textColorHint="#26a69a" />
-
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/CampoCidade"
-            android:hint="Cidade"
-            android:paddingTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:textSize="15sp"
-            android:textColorHint="#26a69a"/>
-
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/CampoPais"
-            android:hint="País"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:textSize="15sp"
-            android:textColorHint="#26a69a"
-            android:layout_marginBottom="30dp"
-            android:layout_marginLeft="15dp"/>
+        </LinearLayout>
 
     </LinearLayout>
-
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Salvar"
-            android:id="@+id/BtnSalvarEnd"
-            android:layout_gravity="right"
-            android:backgroundTint="#009688"
-            android:layout_marginLeft="100dp"
-            android:singleLine="false"
-            android:textColor="#FFF" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancelar"
-            android:id="@+id/BtnCancelarEnd"
-            android:backgroundTint="#009688"
-            android:textColor="#FFF" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</ScrollView>
