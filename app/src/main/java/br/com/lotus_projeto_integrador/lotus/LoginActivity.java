@@ -34,51 +34,9 @@ public class LoginActivity extends Activity {
         editUsuario = (EditText) findViewById(R.id.editUsuario);
         editSenha = (EditText) findViewById(R.id.editSenha);
 
-        try {
-            testaInicializacao();
-        } catch (Exception e) {
-            exibeDialogo("Erro inicializando banco de dados");
-            e.printStackTrace();
-        }
 
     }
 
-    /**
-     * @throws Exception
-     */
-    public void testaInicializacao() throws Exception {
-        if (usuarioController.findAll().isEmpty()) {
-            UsuarioLogin usuario = new UsuarioLogin(null, "jessica", "12345678");
-            usuarioController.insert(usuario);
-        }
-    }
-
-    /**
-     *
-     */
-    public void exibeDialogo(String mensagem) {
-        alert = new AlertDialog.Builder(context);
-        alert.setPositiveButton("OK", null);
-        alert.setMessage(mensagem);
-        alert.create().show();
-    }
-
-    public void validar(View view) {
-        String usuario = editUsuario.getText().toString();
-        String senha = editSenha.getText().toString();
-
-        try {
-            boolean isValid = usuarioController.validaLogin(usuario, senha);
-            if (isValid) {
-                exibeDialogo("Usuario e senha validados com sucesso!");
-            } else {
-                exibeDialogo("Verifique usuario e senha!");
-            }
-        } catch (Exception e) {
-            exibeDialogo("Erro validando usuario e senha");
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -91,7 +49,7 @@ public class LoginActivity extends Activity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                URL url = new URL("http://tsitomcat.azurewebsites.net/julietg1/rest/produtoid/2");
+                URL url = new URL("http://tsitomcat.azurewebsites.net/lotus/rest/login/");
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
                 InputStream in = urlConnection.getInputStream();

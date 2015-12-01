@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,7 +28,9 @@ import java.net.URL;import br.com.lotus_projeto_integrador.lotus.R;
 
 public class DetalhesProduto extends AppCompatActivity {
 
-    public ImageView produtoView;
+
+
+
     public String idProduto;
 
     @Override
@@ -48,23 +51,35 @@ public class DetalhesProduto extends AppCompatActivity {
         TextView TextView= (TextView) findViewById(R.id.txtNomeProduto);
         TextView.setText("" + nomeProduto);
 
-        String txtCategProduto = intent1.getStringExtra("nomeCategoria");
-        TextView  = (TextView) findViewById(R.id.txtCategProduto);
-        TextView.setText(""  + txtCategProduto);
+        final double precoProduto = intent1.getDoubleExtra("precoProduto", 0);
+        TextView  = (TextView) findViewById(R.id.total);
+        TextView.setText("" + precoProduto);
 
-        final double precProduto = intent1.getDoubleExtra("precProduto",0);
-        TextView  = (TextView) findViewById(R.id.txtValorPrecoDe);
-        TextView.setText("" + precProduto);
+       final String descProduto = intent1.getStringExtra("descProduto");
+        TextView  = (TextView) findViewById(R.id.txtDescProduto);
+        TextView.setText(""  + descProduto);
+
+        final double descontoPromocao = intent1.getDoubleExtra("descontoPromocao", 0);
+        TextView  = (TextView) findViewById(R.id.desconto);
+        TextView.setText("" + descontoPromocao);
 
 
-        produtoView = (ImageView) findViewById(R.id.prod_img);
+
+        final String imagem = intent1.getStringExtra("imagem");
+
+         byte [] encodeByte = Base64.decode(imagem, Base64.DEFAULT);
+        Bitmap bmp = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+
+        ImageView img = (ImageView) findViewById(R.id.prod_img);
+        img.setImageBitmap(bmp);
+
 
         Button comprar = (Button) findViewById(R.id.BtnComprar);
         comprar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CarrinhoLogico carrinhoLogico = CarrinhoLogico.getInstance();
-                carrinhoLogico.AddItenCarrinho(new CarrinhoProduto(idProduto, nomeProduto,1,precProduto));
+                carrinhoLogico.AddItenCarrinho(new CarrinhoProduto(idProduto, nomeProduto,1,precoProduto));
 
                 Intent intent = new Intent(DetalhesProduto.this, CarrinhoActivity.class);
                 startActivity(intent);
@@ -88,7 +103,7 @@ public class DetalhesProduto extends AppCompatActivity {
             try {
 
 
-                URL url = new URL("http://tsitomcat.azurewebsites.net/julietg1/rest/produtoid/" + idProduto);
+                URL url = new URL("http://tsitomcat.azurewebsites.net/lotus/rest/produto/" + idProduto);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
                 InputStream in = urlConnection.getInputStream();
@@ -126,17 +141,28 @@ public class DetalhesProduto extends AppCompatActivity {
 
                     int idProduto = jsonobject.getInt("idProduto");
                     String nomeProduto = jsonobject.getString("nomeProduto");
-                    Double precProduto = jsonobject.getDouble("precoProduto");
+                    Double precoProduto  = jsonobject.getDouble("precoProduto");
                     Double descontoPromocao = jsonobject.getDouble("descontoPromocao");
+                    String descProduto = jsonobject.getString("descProduto");
+                    String imagem = jsonobject.getString("imagemProduto");
+
+                    byte [] encodeByte = Base64.decode(imagem, Base64.DEFAULT);
+                    Bitmap bmp = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+
+                    ImageView prod_img = (ImageView) findViewById(R.id.prod_img);
+                    prod_img.setImageBitmap(bmp);
 
                     TextView Nome = (TextView)findViewById(R.id.txtNomeProduto);
                     Nome.setText(nomeProduto);
 
-                    TextView Preco = (TextView)findViewById(R.id.txtPrecoDe);
-                    Preco.setText(Double.toString(precProduto));
+                    TextView Preco = (TextView)findViewById(R.id.total);
+                    Preco.setText(Double.toString(precoProduto));
 
-                    TextView Desconto = (TextView)findViewById(R.id.txtValorPrecoDe);
+                    TextView Desconto = (TextView)findViewById(R.id.desconto);
                     Desconto.setText(Double.toString(descontoPromocao));
+
+                    TextView Descricao = (TextView)findViewById(R.id.txtDescProduto);
+                    Descricao.setText(descProduto);
 
                 }
 

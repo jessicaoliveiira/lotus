@@ -2,13 +2,29 @@ package br.com.lotus_projeto_integrador.lotus;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.support.v4.app.Fragment;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 public class LoginFragment2 extends Fragment {
@@ -18,68 +34,92 @@ public class LoginFragment2 extends Fragment {
         // Required empty public constructor
     }
 
-    private EditText editUsuario, editSenha;
-    private LoginFragment2 context;
-    private UsuarioController usuarioController;
-    private AlertDialog.Builder alert;
+    private EditText editUsuario;
+    private EditText editSenha;
+    private Button btnValidar;
+    private String loginDigitado, senhaDigitada, emailCliente;
+
+
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_login_fragment2, container, false);
         super.onCreate(savedInstanceState);
-        context = this;
-        usuarioController = UsuarioController.getInstance(getContext());
-        editUsuario = (EditText) view.findViewById(R.id.editSenha);
-        editSenha = (EditText) view.findViewById(R.id.editUsuario);
 
-        try {
-            testaInicializacao();
-        } catch (Exception e) {
-            exibeDialogo("Erro inicializando banco de dados");
-            e.printStackTrace();
-        }
+        dadosUsuario informacoes = dadosUsuario.getInstance();
+        informacoes.setLoginUsuario(loginDigitado);
+        informacoes.setSenhaUsuario(senhaDigitada);
+
+        SharedPreferences preferences = this.getActivity().getSharedPreferences("informacoes", Context.MODE_PRIVATE);
+
+        editUsuario = (EditText) view.findViewById(R.id.editUsuario);
+
+        editSenha = (EditText) view.findViewById(R.id.editSenha);
+
+        btnValidar = (Button) view.findViewById(R.id.btnValidar);
+
+        btnValidar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginDigitado = editUsuario.getText().toString();
+                senhaDigitada = editSenha.getText().toString();
+                if ((loginDigitado.isEmpty()) || (senhaDigitada.isEmpty())) {
+
+                } else {
+                    WsLogin wsLogin = new WsLogin();
+                    wsLogin.execute(loginDigitado, senhaDigitada);
+                }
+            }
+        });
 
         return view;
 
     }
 
-    /**
-     * @throws Exception
-     */
-    public void testaInicializacao() throws Exception {
-        if (usuarioController.findAll().isEmpty()) {
-            UsuarioLogin usuario = new UsuarioLogin(null, "jessica", "123");
-            usuarioController.insert(usuario);
-        }
-    }
+    public class WsLogin extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... strings) {
+            try{
+                URL url = new URL("http://tsitomcat.azurewebsites.net/lotus/rest/login/" + loginDigitado + "/" + senhaDigitada);
 
-    /**
-     *
-     */
-    public void exibeDialogo(String mensagem) {
-        alert = new AlertDialog.Builder(getContext());
-        alert.setPositiveButton("OK", null);
-        alert.setMessage(mensagem);
-        alert.create().show();
-    }
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
-    public void btnValidar (View view) {
-        String usuario = editUsuario.getText().toString();
-        String senha = editSenha.getText().toString();
+                InputStream in = urlConnection.getInputStream();
 
-        try {
-            boolean isValid = usuarioController.validaLogin(usuario, senha);
-            if (isValid) {
-                exibeDialogo("Usuario e senha validados com sucesso!");
-            } else {
-                exibeDialogo("Verifique usuario e senha!");
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+
+                StringBuilder responseStrBuilder = new StringBuilder();
+                String inputStr;
+
+                while ((inputStr = reader.readLine()) != null)
+                    responseStrBuilder.append(inputStr);
+
+                String respostaCompleta = responseStrBuilder.toString();
+                return  respostaCompleta;
+            } catch (Exception e){
+
             }
-        } catch (Exception e) {
-            exibeDialogo("Erro validando usuario e senha");
-            e.printStackTrace();
+            return null;
+        }
+
+
+        @Override
+        protected void onPostExecute(String s) {
+            try {
+                JSONObject jsonObject = new JSONObject(s);
+
+                emailCliente = jsonObject.getString("emailCliente");
+
+                if (loginDigitado.equals(emailCliente)) {
+                    Intent intent = new Intent(getActivity(), PagamentoActivity.class);
+                    startActivity(intent);
+
+                }
+            }catch (Exception e){
+                Intent erro = new Intent(getActivity(), erroActivity.class);
+                startActivity(erro);
+            }
         }
     }
-
-
 }

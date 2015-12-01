@@ -59,6 +59,10 @@
             android:name=".CarrinhoActivity"
             android:label="@string/title_activity_carrinho" >
         </activity>
+        <activity
+            android:name=".erroActivity"
+            android:label="@string/title_activity_erro" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,14 +1,18 @@
 package br.com.lotus_projeto_integrador.lotus;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -44,7 +48,7 @@ public class ProdutoFragment extends Fragment {
         return view;
     }
 
-    private void addItem(final int id, final String nomeProduto, final double precProduto, String descProduto, double descontoPromocao, int categoriaProduto) {
+    private void addItem(final int id, final String nomeProduto, final double precoProduto, final String descProduto, final double descontoPromocao, final String imagem) {
         CardView cardView = (CardView) LayoutInflater.from(getActivity()).inflate(R.layout.cardviewproduto, container, false);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +56,13 @@ public class ProdutoFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), DetalhesProduto.class);
                 intent.putExtra("idProduto", id);
                 intent.putExtra("nomeProduto", nomeProduto);
-                intent.putExtra("precProduto", precProduto);
+                intent.putExtra("precoProduto", precoProduto);
+                intent.putExtra("descProduto", descProduto);
+                intent.putExtra("descontoPromocao", descontoPromocao);
+                intent.putExtra("imagem", imagem);
+
+
+
                 startActivity(intent);
             }
         });
@@ -60,12 +70,17 @@ public class ProdutoFragment extends Fragment {
 
 
         TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
-        TextView categoria = (TextView) cardView.findViewById(R.id.categoriaProduto);
+
         TextView prec = (TextView) cardView.findViewById(R.id.precProduto);
+        ImageView prod_img = (ImageView) cardView.findViewById(R.id.imgProduto);
 
         nome.setText(nomeProduto);
-        categoria.setText(Integer.toString(categoriaProduto));
-        prec.setText(Double.toString(precProduto));
+
+        prec.setText(Double.toString(precoProduto));
+
+        byte [] encodeByte = Base64.decode(imagem, Base64.DEFAULT);
+        Bitmap bmp = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+        prod_img.setImageBitmap(bmp);
 
         container.addView(cardView);
 
@@ -77,7 +92,7 @@ public class ProdutoFragment extends Fragment {
         protected String doInBackground(String... params) {
             try {
 
-                URL url = new URL("http://tsitomcat.azurewebsites.net/julietg1/rest/produtoid/2");
+                URL url = new URL("http://tsitomcat.azurewebsites.net/lotus/rest/produtoAll/");
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
                 InputStream in = urlConnection.getInputStream();
@@ -115,12 +130,16 @@ public class ProdutoFragment extends Fragment {
 
                     int idProduto = jsonobject.getInt("idProduto");
                     String nomeProduto = jsonobject.getString("nomeProduto");
-                    Double precProduto = jsonobject.getDouble("precoProduto");
+                    Double precoProduto = jsonobject.getDouble("precoProduto");
                     Double descontoPromocao = jsonobject.getDouble("descontoPromocao");
-                    //String descProduto = jsonobject.getString("descProduto");
+                    String descProduto = jsonobject.getString("descProduto");
                     //int categoriaProduto = jsonobject.getInt("categoriaProduto");
 
-                    addItem(idProduto, nomeProduto, precProduto, "", descontoPromocao, 1);
+                    String imagem = jsonobject.getString("imagemProduto");
+
+
+
+                    addItem(idProduto, nomeProduto, precoProduto, descProduto, descontoPromocao,  imagem);
 
 
                 }
