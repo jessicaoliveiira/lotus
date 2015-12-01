@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.support.v4.app.Fragment;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -65,6 +66,8 @@ public class LoginFragment2 extends Fragment {
                 loginDigitado = editUsuario.getText().toString();
                 senhaDigitada = editSenha.getText().toString();
                 if ((loginDigitado.isEmpty()) || (senhaDigitada.isEmpty())) {
+
+                    Toast.makeText(getActivity(), "Erro ao fazer login", Toast.LENGTH_SHORT).show();
 
                 } else {
                     WsLogin wsLogin = new WsLogin();
@@ -117,8 +120,7 @@ public class LoginFragment2 extends Fragment {
 
                 }
             }catch (Exception e){
-                Intent erro = new Intent(getActivity(), erroActivity.class);
-                startActivity(erro);
+                Toast.makeText(getActivity(), "Erro ao fazer login", Toast.LENGTH_SHORT).show();
             }
         }
     }

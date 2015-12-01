@@ -160,7 +160,7 @@ public class EnderecoActivity extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             try {
 
-                String url = "http://tsitomcat.azurewebsites.net/lotus/rest/cliente/" + "18" + "/" + strNomeEndereco + "/" + strLogradouro + "/" + strNumeroEnd + "/" + strCep + "/" + strComplemento+ "/" + strCidade + "/" + strPais + "/" + strUf;
+                String url = "http://tsitomcat.azurewebsites.net/lotus/rest/cliente/" + "2" + "/" + strNomeEndereco + "/" + strLogradouro + "/" + strNumeroEnd + "/" + strCep + "/" + strComplemento+ "/" + strCidade + "/" + strPais + "/" + strUf;
                 url = url.replaceAll(" ", "%20");
 
                 Log.v("url", url);
