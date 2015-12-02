@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#009688"
-            android:text="Valor Total:"
+            android:text="Valor Total R$: "
             android:id="@+id/ValorTotal"
             android:textSize="18dp"
             android:paddingTop="30dp"
@@ -49,7 +49,7 @@
             android:layout_gravity="center_horizontal"
             android:paddingTop="30dp"
             android:layout_marginBottom="20dp"
-            android:hint="00,00"
+
             android:gravity="center"/>
 
 </LinearLayout>
@@ -65,7 +65,7 @@
         android:textSize="18dp"
         android:textStyle="bold" />
 
-    <Spinner
+      48239161740<Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/spinner" />
@@ -130,8 +130,12 @@
         android:textSize="15sp"
         android:textColorHint="#26a69a"/>
 
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         android:orientation="horizontal"
+        android:textAlignment="center"
+        android:paddingTop="16dp"
         >
 
         <Button
@@ -139,18 +143,20 @@
             android:layout_height="wrap_content"
             android:text="Finalizar"
             android:id="@+id/BtnFinalizar"
-            android:layout_gravity="right"
-            android:backgroundTint="#009688"
+            android:background ="#009688"
             android:layout_marginLeft="100dp"
             android:singleLine="false"
-            android:textColor="#FFF" />
+            android:textColor="#FFF"
+            android:layout_marginRight="10dp"
+
+             />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancelar"
             android:id="@+id/BtnCancelarPgto"
-            android:backgroundTint="#009688"
+            android:background ="#009688"
             android:textColor="#FFF" />
 
     </LinearLayout>

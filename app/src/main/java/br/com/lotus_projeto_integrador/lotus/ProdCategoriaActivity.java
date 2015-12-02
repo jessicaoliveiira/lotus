@@ -90,8 +90,7 @@ public class ProdCategoriaActivity extends AppCompatActivity {
     }
 
 
-
-
+ 
 
     public class ConexaoWeb extends AsyncTask<String, Void, String> {
         @Override
@@ -144,10 +143,6 @@ e.printStackTrace();
                     String imagem = jsonobject.getString("imagemProduto");
 
 
-
-
-
-
                     addItem(idProduto, nomeProduto, precoProduto, descProduto, descontoPromocao, imagem);
 
 
@@ -160,70 +155,5 @@ e.printStackTrace();
     }
 
 
-    public class ConexaoWeb2 extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... params) {
-            try {
-
-                URL url = new URL("http://tsitomcat.azurewebsites.net/lotus/rest/prodcategoria/" + idCategoria);
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-                InputStream in = urlConnection.getInputStream();
-
-
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
-
-                StringBuilder responseStrBuilder = new StringBuilder();
-                String inputStr;
-
-                //Lê linha a linha a resposta e armazena no StringBuilder
-                while ((inputStr = reader.readLine()) != null) responseStrBuilder.append(inputStr);
-
-                String respostaCompleta = responseStrBuilder.toString();
-
-                Log.v("Json", respostaCompleta);
-
-                return respostaCompleta;
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-
-        @Override
-        protected void onPostExecute(String s) {
-            try {
-                JSONArray json = new JSONArray(s);
-                for (int i = 0; i < json.length(); i++) {
-                    JSONObject jsonobject = json.getJSONObject(i);
-                    //JSONObject json = new JSONObject(s);
-
-                    int idProduto = jsonobject.getInt("idProduto");
-                    String nomeProduto = jsonobject.getString("nomeProduto");
-                    Double precoProduto = jsonobject.getDouble("precoProduto");
-                    Double descontoPromocao = jsonobject.getDouble("descontoPromocao");
-                    String descProduto = jsonobject.getString("descProduto");
-                    //int categoriaProduto = jsonobject.getInt("categoriaProduto");
-
-                    String imagem = jsonobject.getString("imagemProduto");
-
-
-
-
-
-
-                    addItem(idProduto, nomeProduto, precoProduto, descProduto, descontoPromocao, imagem);
-
-
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
 }

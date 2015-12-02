@@ -51,9 +51,10 @@
         android:layout_height="wrap_content"
         android:text="Entrar"
         android:id="@+id/btnValidar"
-        android:backgroundTint="#009688"
+        android:background ="#009688"
         android:singleLine="false"
-        android:layout_marginLeft="40dp"
-        android:textColor="#FFF" />
+        android:layout_marginLeft="45dp"
+        android:textColor="#FFF"
+        android:textSize="18dp"/>
 
 </LinearLayout>

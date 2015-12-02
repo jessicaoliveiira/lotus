@@ -128,7 +128,9 @@
                 android:paddingBottom="15dp"
                 android:textColorHint="#26a69a"
                 android:textIsSelectable="false"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:autoText="false"
+                android:maxLength="8" />
 
         </LinearLayout>
 

@@ -11,7 +11,7 @@ public class CarrinhoProduto {
     private int IdProduto;
     private String Nome;
     private int quantidade;
-    private Image img;
+    private String Img;
     private double valor;
 
     public Integer getIdProduto() {
@@ -37,6 +37,8 @@ public class CarrinhoProduto {
     public void setValor(double valor) {
         this.valor = valor;
     }
+
+
 
     public CarrinhoProduto(int idProduto,String Nome,int quantidade, Double valor) {
         this.Nome = Nome;

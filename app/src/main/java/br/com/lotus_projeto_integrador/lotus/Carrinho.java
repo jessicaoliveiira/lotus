@@ -1,8 +1,11 @@
 package br.com.lotus_projeto_integrador.lotus;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +34,15 @@ public class Carrinho extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_carrinho, container, false);
 
+        Button pagamento = (Button) view.findViewById(R.id.btnFinalizarCompra);
+        pagamento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PagamentoActivity.class);
+                startActivity(intent);
+            }
+        });
+
 /*
 adicinar itens no carrinho
 * */
@@ -51,6 +63,9 @@ adicinar itens no carrinho
             addIten(Nome,String.valueOf(iten.getValor()),String.valueOf(iten.getQuantidade()),iten.getIdProduto());
         }
 
+
+
+
         return view;
     }
 
@@ -61,12 +76,15 @@ adicinar itens no carrinho
         final TextView nomeProduto = (TextView) linha.findViewById(R.id.Nome);
         final TextView precProduto = (TextView) linha.findViewById(R.id.Preco);
         final TextView QtdView = (TextView) linha.findViewById(R.id.Qtd);
-        ImageView imageView = (ImageView) linha.findViewById(R.id.image);
+
+         
 
 
         nomeProduto.setText(titulo);
         precProduto.setText(valor);
         QtdView.setText(qtd);
+
+
 
         Button exclui = (Button) linha.findViewById( R.id.RemoveItem);
         exclui.setOnClickListener(new View.OnClickListener() {
@@ -105,14 +123,6 @@ adicinar itens no carrinho
             }
         });
 
-       // Button pagamento = (Button) linha.findViewById(R.id.BtnFinalizar);
-       // pagamento.setOnClickListener(new View.OnClickListener() {
-           // @Override
-            //public void onClick(View v) {
-               // CarrinhoLogico carrinhoLogico = CarrinhoLogico.getInstance();
-                //carrinhoLogico.AddItenPagamento(new CarrinhoProduto(IdProduto, nomeProduto, 1, precProduto));
-           // }
-       // });
 
 
         container2.addView(linha);

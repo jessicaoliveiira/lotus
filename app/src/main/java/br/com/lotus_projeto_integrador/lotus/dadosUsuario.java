@@ -8,6 +8,8 @@ public class dadosUsuario {
 
     private String loginUsuario;
     private String senhaUsuario;
+    private int idUsuario;
+
 
     public static dadosUsuario getInstance() {
         return ourInstance;
@@ -23,12 +25,21 @@ public class dadosUsuario {
         senhaUsuario = senhaUsuario;
     }
 
+    public void setIdUsuario(int idUsuario) {
+
+        idUsuario = idUsuario;
+    }
+
     public String getNomeUsuario() {
         return loginUsuario;
     }
 
     public String getSenhaUsuario() {
         return senhaUsuario;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
 

@@ -63,6 +63,11 @@
             android:name=".erroActivity"
             android:label="@string/title_activity_erro" >
         </activity>
+        <activity
+            android:name=".CompraOk"
+            android:label="@string/title_activity_compra_ok"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

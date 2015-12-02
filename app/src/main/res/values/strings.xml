@@ -20,8 +20,7 @@
     <string name="txtPrecoDe">De:</string>
     <string name="txtValorPrecoDe">R$ 0,00</string>
     <string name="txtPrecoPor">Por:</string>
-    <string name="txtDescProd">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer neque arcu,
-        gravida et libero vel, consequat venenatis erat. Nunc vel felis sit amet ex facilisis malesuada.</string>
+
     <string name="btnComprarDetalhes"></string>
 
     <!-- strings login -->
@@ -50,6 +49,18 @@
     <string name="title_activity_detalhes">Detalhes do produto</string>
     <string name="title_activity_carrinho">Carrinho</string>
     <string name="title_activity_erro">Erro na aplicação</string>
+    <string name="title_activity_compra_ok">CompraOk</string>
+
+    <string name="textoTermos">
+         Lotus cosmeticos Na Appstore, pode-se acessar, navegar, comprar produtos.
+         O App incluem quaisquer conteúdos, anúncios, serviços, tecnologia, dados, produtos in-app (incluindo Produtos in-App vendidos pela Lotus,
+         e outros materiais digitais incluídos em um App ou disponibilizados por meio de um App que o assinante baixar ou usar pela Appstore (incluindo depois que o assinante o baixar).
+         O App também incluem quaisquer atualizações, upgrades e outras mudanças e versões que o assinante posteriormente usar ou baixar da Lotus.
+         A parte que nos fornecer um App para distribuição é o "Editor" do App.
+         O App que disponibilizamos na Lotus Appstore é fornecido e licenciado ao assinante por Editores da Lotus cosmeticos.
+         conforme melhor descrito na página de Sobre de nosso App. De tempos em tempos, poderemos fazer ofertas,
+         brindes e outras promoções na Lotus Appstore. Poderemos modificar ou interromper quaisquer dessas promoções,
+    </string>
 
 
 </resources>

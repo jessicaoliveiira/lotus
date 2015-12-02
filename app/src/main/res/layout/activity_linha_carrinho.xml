@@ -1,21 +1,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:paddingLeft="10dp">
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
 
-        />
+
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="50dp"
         android:orientation="vertical" >
 
 
@@ -33,21 +28,40 @@
             android:layout_column="1"
             android:inputType="text" />
 
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
         <TextView
-            android:id="@+id/Preco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:text="Preco"
-            android:layout_row="0"
-            android:layout_column="1" />
+            android:text="R$:"
+            android:textColor="#E91E63"
+            />
+
+        <TextView
+            android:id="@+id/Preco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="valor"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+             android:layout_marginLeft="10dp"
+              />
+
+        </LinearLayout >
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
             <TextView
                 android:id="@+id/Quantidade"
                 android:layout_width="wrap_content"
@@ -57,7 +71,9 @@
                 android:layout_marginBottom="5dp"
                 android:text="Quantidade:   "
                 android:layout_row="0"
-                android:layout_column="1" />
+                android:layout_column="1"
+
+                />
 
 
             <Button
@@ -67,7 +83,10 @@
                 android:padding="0dp"
                 android:layout_marginTop="3dp"
                 android:text="-"
-                android:id="@+id/subtrai" />
+                android:background="#f4719e"
+                android:id="@+id/subtrai"
+                android:textColor="#FFF"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:id="@+id/Qtd"
@@ -88,17 +107,21 @@
                 android:padding="0dp"
                 android:layout_marginTop="3dp"
                 android:text="+"
-                android:id="@+id/soma" />
+                android:id="@+id/soma"
+                android:background="#f4719e"
+                android:textColor="#FFF"
+                android:layout_marginLeft="10dp"/>
 
         </LinearLayout>
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="230dp"
+            android:layout_height="40dp"
             android:padding="0dp"
-            android:backgroundTint="#009688"
+            android:background ="#009688"
             android:text="Remover Item"
             android:id="@+id/RemoveItem"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:layout_marginBottom="24dp"/>
     </LinearLayout>
 </LinearLayout>

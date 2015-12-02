@@ -19,11 +19,13 @@
     android:layout_height="wrap_content"
     android:gravity="bottom"
     android:text="Finalizar"
-
+    android:paddingLeft="125dp"
+    android:paddingBottom="12dp"
     android:id="@+id/btnFinalizarCompra"
-    android:backgroundTint="#009688"
+    android:background ="#009688"
     android:layout_gravity="bottom"
     android:textAlignment="center"
+    android:textSize="18dp"
     android:textColor="#FFF" />
 </LinearLayout>
 

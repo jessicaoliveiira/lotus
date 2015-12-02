@@ -3,6 +3,7 @@ package br.com.lotus_projeto_integrador.lotus;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -68,10 +69,11 @@ public class DetalhesProduto extends AppCompatActivity {
         final String imagem = intent1.getStringExtra("imagem");
 
          byte [] encodeByte = Base64.decode(imagem, Base64.DEFAULT);
-        Bitmap bmp = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+        final Bitmap bmp = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
 
         ImageView img = (ImageView) findViewById(R.id.prod_img);
         img.setImageBitmap(bmp);
+
 
 
         Button comprar = (Button) findViewById(R.id.BtnComprar);
@@ -79,10 +81,13 @@ public class DetalhesProduto extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 CarrinhoLogico carrinhoLogico = CarrinhoLogico.getInstance();
-                carrinhoLogico.AddItenCarrinho(new CarrinhoProduto(idProduto, nomeProduto,1,precoProduto));
+                carrinhoLogico.AddItenCarrinho(new CarrinhoProduto(idProduto, nomeProduto,1,precoProduto  ));
 
-                Intent intent = new Intent(DetalhesProduto.this, CarrinhoActivity.class);
-                startActivity(intent);
+
+
+
+                 Intent intent = new Intent(DetalhesProduto.this, CarrinhoActivity.class);
+                 startActivity(intent);
 
             }
         });
