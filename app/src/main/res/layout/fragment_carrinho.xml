@@ -1,7 +1,8 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="br.com.lotus_projeto_integrador.lotus.Produto">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,6 +14,22 @@
         </LinearLayout>
     </ScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:text="Finalizar"
+            android:paddingLeft="125dp"
+            android:paddingBottom="12dp"
+            android:id="@+id/btnFinalizarCompra"
+            android:background ="#009688"
+            android:layout_gravity="bottom"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:textColor="#FFF" />
+    </LinearLayout>
 
-
-</LinearLayout>
+</RelativeLayout>

@@ -26,6 +26,8 @@ public class CompraOk extends AppCompatActivity {
                 Intent intent = new Intent(CompraOk.this, MainActivity.class);
                 startActivity(intent);
 
+                
+
             }
         });
 
