@@ -34,7 +34,7 @@ public class PagamentoActivity extends AppCompatActivity {
 
     //private Spinner spn1;
 
-
+    public String uurl;
     public int IdUsuario;
     public int IdEndereco;
     public int id;
@@ -98,8 +98,10 @@ public class PagamentoActivity extends AppCompatActivity {
         protected String doInBackground(String... params) {
             try {
 
-                 URL url = new URL("http://tsitomcat.azurewebsites.net/lotus/rest/pedido/" + IdUsuario  + "/1/1/" + IdEndereco + "/1");
+               URL  url = new URL("http://tsitomcat.azurewebsites.net/lotus/rest/pedido/" + IdUsuario  + "/1/1/" + IdEndereco + "/1");
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+
 
                 InputStream in = urlConnection.getInputStream();
 
