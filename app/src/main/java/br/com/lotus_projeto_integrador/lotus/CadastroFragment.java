@@ -63,19 +63,19 @@ public class CadastroFragment extends Fragment {
         campo_senha = (EditText) view.findViewById(R.id.senhaCliente);
 
         campo_cpf = (EditText) view.findViewById(R.id.cpfCliente);
-      //  campo_cpf.addTextChangedListener(Mask.insert("###.###.###-##", campo_cpf));
+        //  campo_cpf.addTextChangedListener(Mask.insert("###.###.###-##", campo_cpf));
 
         campo_celular = (EditText) view.findViewById(R.id.celCliente);
-      //  campo_celular.addTextChangedListener(Mask.insert("(##)####-#####", campo_celular));
+        //  campo_celular.addTextChangedListener(Mask.insert("(##)####-#####", campo_celular));
 
         campo_telefone_residencial = (EditText) view.findViewById(R.id.telRelCliente);
-      //  campo_telefone_residencial.addTextChangedListener(Mask.insert("(##)####-####", campo_telefone_residencial));
+        //  campo_telefone_residencial.addTextChangedListener(Mask.insert("(##)####-####", campo_telefone_residencial));
 
         campo_telefone_comercial = (EditText) view.findViewById(R.id.telComCliente);
-      //  campo_telefone_comercial.addTextChangedListener(Mask.insert("(##)####-####", campo_telefone_comercial));
+        //  campo_telefone_comercial.addTextChangedListener(Mask.insert("(##)####-####", campo_telefone_comercial));
 
         campo_data_nascimento = (EditText) view.findViewById(R.id.dtNascCliente);
-       // campo_data_nascimento.addTextChangedListener(Mask.insert("##/##/####", campo_data_nascimento));
+        // campo_data_nascimento.addTextChangedListener(Mask.insert("##/##/####", campo_data_nascimento));
 
 
 
@@ -210,46 +210,18 @@ public class CadastroFragment extends Fragment {
         @Override
         protected void onPostExecute(String s) {
             try {
-                JSONArray json = new JSONArray(s);
-                for (int i = 0; i < json.length(); i++) {
-                    JSONObject jsonobject = json.getJSONObject(i);
-                    //JSONObject json = new JSONObject(s);
+                JSONObject jsonobject = new JSONObject(s);
+                //JSONObject json = new JSONObject(s);
 
-                    String nomeCompletoCliente = jsonobject.getString("nomeCliente");
-                    String emailCliente = jsonobject.getString("emailCliente");
-                    String senhaCliente = jsonobject.getString("senhaCliente");
-                    String CPFCliente = jsonobject.getString("cpfCliente");
-                    String celularCliente = jsonobject.getString("celCliente");
-                    String telComercialCliente = jsonobject.getString("telRelCliente");
-                    String telResidencialCliente = jsonobject.getString("telComCliente");
-                   // String dtNascCliente = jsonobject.getString("dtNascCliente");
+                String idCliente = jsonobject.getString("idCliente");
 
+                Log.v("teste id",idCliente);
 
-                    TextView NomeCompletoCliente = (TextView) view.findViewById(R.id.nomeCliente);
-                    NomeCompletoCliente.setText(nomeCompletoCliente);
+                Intent intent = new Intent(getActivity(),EnderecoActivity.class);
+                intent.putExtra("a",idCliente);
 
-                    TextView EmailCliente = (TextView) view.findViewById(R.id.emailCliente);
-                    EmailCliente.setText(emailCliente);
-
-                    TextView SenhaCliente = (TextView) view.findViewById(R.id.senhaCliente);
-                    SenhaCliente.setText(senhaCliente);
-
-                    TextView CPFcliente = (TextView) view.findViewById(R.id.cpfCliente);
-                    CPFcliente.setText(CPFCliente);
-
-                    TextView CelularCliente = (TextView) view.findViewById(R.id.celCliente);
-                    CelularCliente.setText(celularCliente);
-
-                    TextView TelResidencialCliente = (TextView) view.findViewById(R.id.telRelCliente);
-                    TelResidencialCliente.setText(telResidencialCliente);
-
-                    TextView TelComercialCliente = (TextView) view.findViewById(R.id.telComCliente);
-                    TelComercialCliente.setText(telComercialCliente);
-
-                  /*  TextView DtNascCliente = (TextView) view.findViewById(R.id.dtNascCliente);
-                    DtNascCliente.setText(dtNascCliente);*/
-
-                }
+                Log.v("teste id 1",idCliente);
+                startActivity(intent);
 
             } catch (Exception e) {
                 e.printStackTrace();

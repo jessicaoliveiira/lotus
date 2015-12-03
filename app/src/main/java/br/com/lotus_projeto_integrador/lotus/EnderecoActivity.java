@@ -26,6 +26,16 @@ import java.net.URL;
 
 public class EnderecoActivity extends AppCompatActivity {
 
+    EditText NomeEndereco;
+    EditText Logradouro;
+    EditText NumeroEnd;
+    EditText Complemento;
+    EditText CepEndereco;
+    EditText Cidade;
+    EditText UFendereco;
+    EditText Pais;
+
+
     String strNomeEndereco;
     String strLogradouro;
     String strNumeroEnd;
@@ -34,6 +44,7 @@ public class EnderecoActivity extends AppCompatActivity {
     String strCidade;
     String strUf;
     String strPais;
+    String idCliente;
 
     public View view;
 
@@ -42,14 +53,19 @@ public class EnderecoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_endereco);
 
-        final EditText NomeEndereco = (EditText) findViewById(R.id.nomeEndereco);
-        final EditText Logradouro = (EditText) findViewById(R.id.logradouro);
-        final EditText NumeroEnd = (EditText) findViewById(R.id.numeroEnd);
-        final EditText Complemento = (EditText)findViewById(R.id.complemento);
-        final EditText CepEndereco = (EditText) findViewById(R.id.cepEndereco);
-        final EditText Cidade = (EditText) findViewById(R.id.cidade);
-        final EditText UFendereco = (EditText) findViewById(R.id.uf);
-        final EditText Pais = (EditText) findViewById(R.id.pais);
+        NomeEndereco = (EditText) findViewById(R.id.nomeEndereco);
+        Logradouro = (EditText) findViewById(R.id.logradouro);
+        NumeroEnd = (EditText) findViewById(R.id.numeroEnd);
+        Complemento = (EditText)findViewById(R.id.complemento);
+        CepEndereco = (EditText) findViewById(R.id.cepEndereco);
+        Cidade = (EditText) findViewById(R.id.cidade);
+        UFendereco = (EditText) findViewById(R.id.uf);
+        Pais = (EditText) findViewById(R.id.pais);
+
+
+        Intent intent = getIntent();
+        idCliente = intent.getStringExtra("a");
+        Log.v("teste id 2",String.valueOf(idCliente));
 
         Button BtnSalvarEnd = (Button) findViewById(R.id.BtnSalvarEnd);
         BtnSalvarEnd.setOnClickListener(new View.OnClickListener() {
@@ -97,28 +113,30 @@ public class EnderecoActivity extends AppCompatActivity {
                     strPais = null;
                 }
 
-                if (NomeEndereco.getText().length() == 0 || Logradouro.getText().length() <= 3 ||
-                        NumeroEnd.getText().length() <= 1 || CepEndereco.getText().length() <= 8 ||
-                        Cidade.getText().length() <= 3 || UFendereco.getText().length() <= 2 ||
-                        Pais.getText().length() <= 3) {
+
+                /*if (NomeEndereco.getText().length() == 0 ){
                     validator.validateNotNull(NomeEndereco, "Preencha o campo endereço");
+                } else if (Logradouro.getText().length() <= 3){
                     validator.validateNotNull(Logradouro, "Preencha o campo logradouro");
+                } else if (NumeroEnd.getText().length() <= 1){
                     validator.validateNotNull(NumeroEnd, "Preencha o campo número");
+                }else if (CepEndereco.getText().length() <= 8){
                     validator.validateNotNull(CepEndereco, "Preencha o campo CEP");
+                } else if (Cidade.getText().length() <= 3){
                     validator.validateNotNull(Cidade, "Preencha o campo Cidade");
+                } else if (UFendereco.getText().length() <= 2){
                     validator.validateNotNull(UFendereco, "Preencha o campo UF");
+                } else if (Pais.getText().length() <= 3) {
                     validator.validateNotNull(Pais, "Preencha o campo País");
+                } else {*/
 
-                } else {
+                ConexaoWeb conexaoWeb = new ConexaoWeb();
+                conexaoWeb.execute();
 
-                    ConexaoWeb conexaoWeb = new ConexaoWeb();
-                    conexaoWeb.execute(strNomeEndereco, strLogradouro, strNumeroEnd, strComplemento, strCep, strCidade, strUf, strPais);
-
-                    Intent intent = new Intent(EnderecoActivity.this, ProdCategoriaActivity.class);
-                    startActivity(intent);
-
-                }
+                Intent intent = new Intent(EnderecoActivity.this, LotusActivity.class);
+                startActivity(intent);
             }
+            // }
         });
 
 
@@ -160,7 +178,9 @@ public class EnderecoActivity extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             try {
 
-                String url = "http://tsitomcat.azurewebsites.net/lotus/rest/cliente/" + "2" + "/" + strNomeEndereco + "/" + strLogradouro + "/" + strNumeroEnd + "/" + strCep + "/" + strComplemento+ "/" + strCidade + "/" + strPais + "/" + strUf;
+
+                String url = "http://tsitomcat.azurewebsites.net/lotus/rest/endereco/"+  idCliente + "/" + strNomeEndereco + "/" + strLogradouro + "/" + strNumeroEnd + "/" + strCep + "/" + strComplemento+ "/" + strCidade + "/" + strPais + "/" + strUf;
+
                 url = url.replaceAll(" ", "%20");
 
                 Log.v("url", url);
@@ -194,46 +214,42 @@ public class EnderecoActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             try {
-                JSONArray json = new JSONArray(s);
-                for (int i = 0; i < json.length(); i++) {
-                    JSONObject jsonobject = json.getJSONObject(i);
-                    //JSONObject json = new JSONObject(s);
+                JSONObject jsonobject = new JSONObject(s);
+                //JSONObject json = new JSONObject(s);
 
-                    String nomeEndereco = jsonobject.getString("nomeEndereco");
-                    String logradouroEndereco = jsonobject.getString("logradouro");
-                    String numeroEndereco = jsonobject.getString("numeroEnd");
-                    String complementoEndereco = jsonobject.getString("complemento");
-                    String cepEndereco = jsonobject.getString("cepEndereco");
-                    String cidadeEndereco = jsonobject.getString("cidade");
-                    String ufEndereco = jsonobject.getString("uf");
-                    String paisEndereco = jsonobject.getString("pais");
+                String nomeEndereco = jsonobject.getString("nomeEndereco");
+                String logradouroEndereco = jsonobject.getString("logradouro");
+                String numeroEndereco = jsonobject.getString("numeroEnd");
+                String complementoEndereco = jsonobject.getString("complemento");
+                String cepEndereco = jsonobject.getString("cepEndereco");
+                String cidadeEndereco = jsonobject.getString("cidade");
+                String ufEndereco = jsonobject.getString("uf");
+                String paisEndereco = jsonobject.getString("pais");
 
 
-                    TextView txtNomeEndereco = (TextView) view.findViewById(R.id.nomeEndereco);
-                    txtNomeEndereco.setText(nomeEndereco);
+                TextView txtNomeEndereco = (TextView) view.findViewById(R.id.nomeEndereco);
+                txtNomeEndereco.setText(nomeEndereco);
 
-                    TextView txtLogradouro = (TextView) view.findViewById(R.id.logradouro);
-                    txtLogradouro.setText(logradouroEndereco);
+                TextView txtLogradouro = (TextView) view.findViewById(R.id.logradouro);
+                txtLogradouro.setText(logradouroEndereco);
 
-                    TextView txtNumEndereco = (TextView) view.findViewById(R.id.numeroEnd);
-                    txtNumEndereco.setText(numeroEndereco);
+                TextView txtNumEndereco = (TextView) view.findViewById(R.id.numeroEnd);
+                txtNumEndereco.setText(numeroEndereco);
 
-                    TextView txtComplementoEnd = (TextView) view.findViewById(R.id.complemento);
-                    txtComplementoEnd.setText(complementoEndereco);
+                TextView txtComplementoEnd = (TextView) view.findViewById(R.id.complemento);
+                txtComplementoEnd.setText(complementoEndereco);
 
-                    TextView txtCepEnd = (TextView) view.findViewById(R.id.cepEndereco);
-                    txtCepEnd.setText(cepEndereco);
+                TextView txtCepEnd = (TextView) view.findViewById(R.id.cepEndereco);
+                txtCepEnd.setText(cepEndereco);
 
-                    TextView txtCidadeEnd = (TextView) view.findViewById(R.id.cidade);
-                    txtCidadeEnd.setText(cidadeEndereco);
+                TextView txtCidadeEnd = (TextView) view.findViewById(R.id.cidade);
+                txtCidadeEnd.setText(cidadeEndereco);
 
-                    TextView txtUfEnd = (TextView) view.findViewById(R.id.uf);
-                    txtUfEnd.setText(ufEndereco);
+                TextView txtUfEnd = (TextView) view.findViewById(R.id.uf);
+                txtUfEnd.setText(ufEndereco);
 
-                    TextView txtPais = (TextView) view.findViewById(R.id.pais);
-                    txtPais.setText(paisEndereco);
-
-                }
+                TextView txtPais = (TextView) view.findViewById(R.id.pais);
+                txtPais.setText(paisEndereco);
 
             } catch (Exception e) {
                 e.printStackTrace();
