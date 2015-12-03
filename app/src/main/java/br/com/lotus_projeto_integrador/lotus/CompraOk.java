@@ -15,8 +15,7 @@ public class CompraOk extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compra_ok);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         Button comprar = (Button) findViewById(R.id.home);
         comprar.setOnClickListener(new View.OnClickListener() {

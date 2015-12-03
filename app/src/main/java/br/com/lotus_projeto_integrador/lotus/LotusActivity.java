@@ -62,7 +62,7 @@ public class LotusActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
                     return true;
                 }
-
+//
                 if (id == R.id.action_login) {
 
                     LoginFragment2 loginFragment2 = new LoginFragment2();
