@@ -21,6 +21,7 @@ public class CompraOk extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(CompraOk.this, LotusActivity.class);
                 startActivity(i);
+                finish();
             }
         });
 

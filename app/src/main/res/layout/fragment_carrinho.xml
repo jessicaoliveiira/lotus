@@ -1,3 +1,4 @@
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,7 +30,25 @@
             android:layout_gravity="bottom"
             android:textAlignment="center"
             android:textSize="18dp"
-            android:textColor="#FFF" />
+            android:textColor="#FFF"
+            android:visibility="gone"/>
+        <TextView
+            android:layout_width="85dp"
+            android:layout_height="115dp"
+            android:id="@+id/iconeVazio"
+            android:textSize="18dp"
+            android:drawableLeft="@drawable/atencao"
+            android:paddingLeft="5dp"
+            android:layout_gravity="center_vertical" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Não há produtos em seu carrinho. Para inserir algum produto no seu carrinho, navegue pelas categorias ou lista de produtos. Ao encontrar os itens desejados, clique no botão COMPRAR localizado na página do produto."
+            android:id="@+id/txtVazio"
+            android:textSize="18dp"
+            android:layout_marginRight="15dp"
+            android:layout_gravity="center_vertical"
+       />
     </LinearLayout>
 
 </RelativeLayout>
