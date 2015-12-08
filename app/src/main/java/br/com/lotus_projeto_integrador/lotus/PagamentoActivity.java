@@ -54,10 +54,6 @@ public class PagamentoActivity extends AppCompatActivity {
         //spn1.setAdapter(arrayAdapter);
 
 
-        dadosUsuario dadosUuusuario  = dadosUsuario.getInstance();
-        dadosUuusuario.getIdUsuario() ;
-
-
         CarrinhoLogico carrinhoLogico = CarrinhoLogico.getInstance();
 
 
@@ -73,8 +69,6 @@ public class PagamentoActivity extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.CampoValorTotal);
         textView.setText(String.valueOf(precofinal));
 
-         IdUsuario = dadosUuusuario.getIdUsuario();
-
 
         Button finalizar = (Button) findViewById( R.id.BtnFinalizar);
         finalizar.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +82,9 @@ public class PagamentoActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Intent intent  = new Intent(this, Carrinho.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
 
     }

@@ -5,11 +5,10 @@ package br.com.lotus_projeto_integrador.lotus;
  */
 public class dadosUsuario {
     private static dadosUsuario ourInstance = new dadosUsuario();
-
-    private String loginUsuario;
-    private String senhaUsuario;
-    private int idUsuario;
-
+    private String Logradouro;
+    private String Bairro;
+    private String Localidade;
+    private String UF;
 
     public static dadosUsuario getInstance() {
         return ourInstance;
@@ -17,29 +16,37 @@ public class dadosUsuario {
 
     private dadosUsuario() {
     }
-    public void setLoginUsuario(String loginUsuario) {
-        loginUsuario = loginUsuario;
+
+    public void setLogradouro(String logradouro) {
+        Logradouro = logradouro;
     }
 
-    public void setSenhaUsuario(String nomeUsuario) {
-        senhaUsuario = senhaUsuario;
+    public void setBairro(String bairro) {
+        Bairro = bairro;
     }
 
-    public void setIdUsuario(int idUsuario) {
-
-        idUsuario = idUsuario;
+    public void setLocalidade(String localidade) {
+        Localidade = localidade;
     }
 
-    public String getNomeUsuario() {
-        return loginUsuario;
+    public void setUF(String UF) {
+        this.UF = UF;
     }
 
-    public String getSenhaUsuario() {
-        return senhaUsuario;
+    public String getLogradouro() {
+        return Logradouro;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public String getBairro() {
+        return Bairro;
+    }
+
+    public String getLocalidade() {
+        return Localidade;
+    }
+
+    public String getUF() {
+        return UF;
     }
 
 

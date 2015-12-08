@@ -16,19 +16,15 @@ public class CompraOk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compra_ok);
 
-
-        Button comprar = (Button) findViewById(R.id.home);
-        comprar.setOnClickListener(new View.OnClickListener() {
-            @Override
+        FloatingActionButton fabFinalizar = (FloatingActionButton)findViewById(R.id.fab);
+        fabFinalizar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                Intent intent = new Intent(CompraOk.this, LotusActivity.class);
-                startActivity(intent);
-
-
-
+                Intent i = new Intent(CompraOk.this, LotusActivity.class);
+                startActivity(i);
             }
         });
+
+
 
     }
 

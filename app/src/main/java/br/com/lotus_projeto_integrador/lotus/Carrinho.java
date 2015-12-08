@@ -35,13 +35,21 @@ public class Carrinho extends Fragment {
         View view = inflater.inflate(R.layout.fragment_carrinho, container, false);
 
         Button pagamento = (Button) view.findViewById(R.id.btnFinalizarCompra);
-        pagamento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), PagamentoActivity.class);
-                startActivity(intent);
-            }
-        });
+
+
+            pagamento.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent);
+
+                }
+            });
+
+
+
+
+
 
 /*
 adicinar itens no carrinho

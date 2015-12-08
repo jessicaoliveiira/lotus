@@ -45,17 +45,4 @@
             android:paddingTop="6dp"
             android:textAlignment="center"/>
 
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home"
-            android:id="@+id/home"
-            android:background ="#009688"
-            android:singleLine="false"
-            android:textColor="#FFF"
-            android:layout_marginTop="10dp"
-            android:drawableLeft="@drawable/ic_comprar"
-            android:layout_gravity="center_horizontal" />
-
     </LinearLayout>

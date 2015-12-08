@@ -48,11 +48,6 @@ public class LoginFragment2 extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_login_fragment2, container, false);
         super.onCreate(savedInstanceState);
 
-        dadosUsuario informacoes = dadosUsuario.getInstance();
-        informacoes.setLoginUsuario(loginDigitado);
-        informacoes.setSenhaUsuario(senhaDigitada);
-
-        SharedPreferences preferences = this.getActivity().getSharedPreferences("informacoes", Context.MODE_PRIVATE);
 
         editUsuario = (EditText) view.findViewById(R.id.editUsuario);
 

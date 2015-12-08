@@ -2,11 +2,14 @@ package br.com.lotus_projeto_integrador.lotus;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -18,82 +21,42 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends AppCompatActivity {
 
-    private EditText editUsuario, editSenha;
-    private Context context;
-    private UsuarioController usuarioController;
-    private AlertDialog.Builder alert;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        context = this;
-        usuarioController = UsuarioController.getInstance(context);
-        editUsuario = (EditText) findViewById(R.id.editUsuario);
-        editSenha = (EditText) findViewById(R.id.editSenha);
 
-
+        LoginFragment2 login = new LoginFragment2();
+        getSupportFragmentManager().beginTransaction().replace(R.id.containerLogin, login).commit();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.lotus, menu);
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_carrinho, menu);
         return true;
+
+
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-    public class ConexaoWeb extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... params) {
-            try {
-                URL url = new URL("http://tsitomcat.azurewebsites.net/lotus/rest/login/");
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-                InputStream in = urlConnection.getInputStream();
-
-                //Cria um leitor para ler a resposta
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
-
-                StringBuilder responseStrBuilder = new StringBuilder();
-                String inputStr;
-
-                //Lê linha a linha a resposta e armazena no StringBuilder
-                while ((inputStr = reader.readLine()) != null)
-                    responseStrBuilder.append(inputStr);
-
-                //Transforma o StringBuilder em String, que contém a resposta final
-                String respostaCompleta = responseStrBuilder.toString();
-
-                return respostaCompleta;
-
-            } catch (Exception e) {
-
-            }
-            return null;
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(LoginActivity.this, LotusActivity.class);
+            startActivity(intent);
+            return true;
         }
-        @Override
-        protected void onPostExecute(String s) {
-            try {
-                JSONObject json = new JSONObject(s);
-                String emailCliente = json.getString("emailCliente");
-                String senhaCliente = json.getString("senhaCliente");
 
-
-                Intent intent = new Intent(LoginActivity.this, LotusActivity.class);
-
-                intent.putExtra("emailCliente", emailCliente);
-                intent.putExtra("senhaCliente", senhaCliente);
-
-                startActivity(intent);
-
-
-
-            } catch (Exception e) {
-
-            }
-        }
+        return super.onOptionsItemSelected(item);
     }
-}
+
+    }
