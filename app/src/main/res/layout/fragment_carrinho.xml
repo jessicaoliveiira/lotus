@@ -31,7 +31,6 @@
             android:layout_weight="0.05"
             android:layout_gravity="bottom"
             android:textColor="#FFF"
-            android:drawableLeft="@drawable/ic_voltar"
             android:paddingLeft="4dp"
             android:visibility="gone"/>
 
