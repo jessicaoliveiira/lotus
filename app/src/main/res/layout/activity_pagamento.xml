@@ -37,6 +37,8 @@
             android:id="@+id/ValorTotal"
             android:textSize="18dp"
             android:paddingTop="30dp"
+            android:editable="false"
+            android:focusable="false"
             android:layout_marginBottom="20dp"
             android:textStyle="bold" />
 
@@ -50,7 +52,10 @@
             android:paddingTop="30dp"
             android:layout_marginBottom="20dp"
 
-            android:gravity="center"/>
+            android:gravity="center"
+            android:enabled="true"
+            android:editable="false"
+            android:focusable="true" />
 
 </LinearLayout>
 
@@ -65,10 +70,6 @@
         android:textSize="18dp"
         android:textStyle="bold" />
 
-      48239161740<Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner" />
 
      </LinearLayout>
 
@@ -147,7 +148,8 @@
             android:singleLine="false"
             android:textColor="#FFF"
             android:layout_marginRight="10dp"
-            android:layout_gravity="center_vertical" />
+            android:layout_gravity="center_vertical"
+            android:drawableLeft="@drawable/ic_comprar" />
 
     </LinearLayout>
 

@@ -35,8 +35,10 @@ public class Carrinho extends Fragment {
         View view = inflater.inflate(R.layout.fragment_carrinho, container, false);
 
         Button pagamento = (Button) view.findViewById(R.id.btnFinalizarCompra);
+
         TextView txtVazio = (TextView) view.findViewById(R.id.txtVazio);
         TextView iconeVazio = (TextView) view.findViewById(R.id.iconeVazio);
+
             pagamento.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -45,10 +47,6 @@ public class Carrinho extends Fragment {
 
                 }
             });
-
-
-
-
 
 
 /*
