@@ -34,6 +34,7 @@ public class DetalhesProduto extends AppCompatActivity {
 
     public String idProduto;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,9 +83,6 @@ public class DetalhesProduto extends AppCompatActivity {
             public void onClick(View v) {
                 CarrinhoLogico carrinhoLogico = CarrinhoLogico.getInstance();
                 carrinhoLogico.AddItenCarrinho(new CarrinhoProduto(idProduto, nomeProduto,1,precoProduto  ));
-
-
-
 
                  Intent intent = new Intent(DetalhesProduto.this, CarrinhoActivity.class);
                  startActivity(intent);
