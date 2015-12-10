@@ -63,19 +63,19 @@ public class CadastroFragment extends Fragment {
         campo_senha = (EditText) view.findViewById(R.id.senhaCliente);
 
         campo_cpf = (EditText) view.findViewById(R.id.cpfCliente);
-        //  campo_cpf.addTextChangedListener(Mask.insert("###.###.###-##", campo_cpf));
+        campo_cpf.addTextChangedListener(Mask.insert("###.###.###-##", campo_cpf));
 
         campo_celular = (EditText) view.findViewById(R.id.celCliente);
-        //  campo_celular.addTextChangedListener(Mask.insert("(##)####-#####", campo_celular));
+         campo_celular.addTextChangedListener(Mask.insert("(##)####-#####", campo_celular));
 
         campo_telefone_residencial = (EditText) view.findViewById(R.id.telRelCliente);
-        //  campo_telefone_residencial.addTextChangedListener(Mask.insert("(##)####-####", campo_telefone_residencial));
+        campo_telefone_residencial.addTextChangedListener(Mask.insert("(##)####-####", campo_telefone_residencial));
 
         campo_telefone_comercial = (EditText) view.findViewById(R.id.telComCliente);
-        //  campo_telefone_comercial.addTextChangedListener(Mask.insert("(##)####-####", campo_telefone_comercial));
+        campo_telefone_comercial.addTextChangedListener(Mask.insert("(##)####-####", campo_telefone_comercial));
 
         campo_data_nascimento = (EditText) view.findViewById(R.id.dtNascCliente);
-        // campo_data_nascimento.addTextChangedListener(Mask.insert("##/##/####", campo_data_nascimento));
+        campo_data_nascimento.addTextChangedListener(Mask.insert("##/##/####", campo_data_nascimento));
 
 
 

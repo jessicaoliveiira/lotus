@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -42,12 +44,16 @@ public class PagamentoActivity extends AppCompatActivity {
     public int idpedido;
     public double valor;
 
+
+
     //String cartao[] = {"Opção1", "Opção2", "Opção3"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagamento);
 
+        EditText CampoValorTotal = (EditText)findViewById(R.id.CampoValorTotal);
+        CampoValorTotal.setEnabled(false); CampoValorTotal.setInputType(InputType.TYPE_NULL);
         //spn1 = (Spinner) findViewById(R.id.spinner);
 
         // ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, cartao);
