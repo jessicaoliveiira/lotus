@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:cardElevation="5dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="4dp"
+    android:backgroundTint="@color/cardview_light_background">
 
 
 
@@ -34,7 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="2dp">
+            android:paddingTop="2dp"
+            >
 
             <TextView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

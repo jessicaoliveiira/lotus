@@ -30,7 +30,7 @@
 
     <item android:id="@+id/action_produto"
         android:title="Produtos"
-        android:icon="@drawable/ic_produto"
+        android:icon="@drawable/ic_produtos"
         android:checked="false"/>
 
     <item android:id="@+id/action_sobre"

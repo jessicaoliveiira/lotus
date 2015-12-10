@@ -152,7 +152,7 @@
             android:background="#009688"
             android:layout_weight="0.06"
             android:textColor="#FFF"
-            android:drawableLeft="@drawable/ic_comprar" />
+            android:drawableLeft="@drawable/ic_pagamento" />
 
     </LinearLayout>
 
