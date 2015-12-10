@@ -165,7 +165,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Agradecimentos: Dario, Gustavo Henrique, Rafael, Thiago, Wesley."
+            android:text="Agradecimentos: Dario, Gustavo Henrique, Rafael, Thiago e Wesley."
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
