@@ -119,12 +119,13 @@ public class CameraTestActivity extends Activity {
                 SymbolSet syms = scanner.getResults();
 
                 for (Symbol sym : syms) {
-
+                    if (sym.getData().substring(0, 1) == "L") {
                         Intent intent = new Intent(CameraTestActivity.this, DetalhesProduto.class);
-                        intent.putExtra("L"+"resultado", sym.getData());
+                        intent.putExtra("resultado", sym.getData());
                         startActivity(intent);
                         finish();
 
+                    }
                 }
 
 
